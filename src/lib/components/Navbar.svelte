@@ -1,17 +1,17 @@
 <style>
     .navbar {
-        height: 7vh;
+        height: 10vh;
         display: flex;
         justify-content: center;
         align-items: center;
+        gap: 200px;
+        font-weight: bold;
     }
     .navbar a {
         text-decoration: none;
         color: var(--fg);
-        margin: 4px 20px;
-        font-size: 20px;
+        font-size: 30px;
     }
-
 
     .navbar a:hover {
         animation-name: underline;

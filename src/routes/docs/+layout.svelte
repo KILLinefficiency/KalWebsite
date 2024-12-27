@@ -9,7 +9,7 @@
         display: grid;
         grid-template-columns: 30% 60%;
         justify-content: center;
-        height: 86vh;
+        height: 80vh;
         gap: 15px;
     }
     .panel, .content {
@@ -17,6 +17,18 @@
         overflow: auto;
         border-top: 3px solid black;
         border-bottom: 3px solid black;
+    }
+    li {
+        font-size: 25px;
+        margin: 10px 0px;
+    }
+    a {
+        text-decoration: none;
+        color: var(--fg);
+        font-size: 25px;
+    }
+    a:hover, li:hover {
+        font-weight: bold;
     }
 </style>
 
