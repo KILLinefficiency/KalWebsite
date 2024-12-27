@@ -2,4 +2,4 @@
     import Content from "$lib/components/Content.svelte";
 </script>
 
-<Content title="Kal" desc="Introduction" />
+<Content title="Installing Kal" desc="From Github" />

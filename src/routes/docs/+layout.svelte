@@ -1,12 +1,15 @@
 <script>
+    import Links from "$lib/data/links.js";
+
     let { children } = $props();
 </script>
+
 <style>
     .grid {
         display: grid;
         grid-template-columns: 30% 60%;
         justify-content: center;
-        height: 90vh;
+        height: 86vh;
         gap: 15px;
     }
     .panel, .content {
@@ -20,14 +23,13 @@
 <div class = "container">
     <div class = "grid">
         <div class = "panel">
-            <h1>Panel</h1>
-            <h1>Panel</h1>
-            <h1>Panel</h1>
-            <h1>Panel</h1>
-            <h1>Panel</h1>
-            <h1>Panel</h1>
-            <h1>Panel</h1>
-            <h1>Panel</h1>
+            <ol>
+            {#each Links as link}
+                <li>
+                    <a href={link[1]}>{link[0]}</a>
+                </li>
+            {/each}
+            </ol>
         </div>
         <div class = "content">
             {@render children()}

@@ -7,7 +7,7 @@
     }
     .navbar a {
         text-decoration: none;
-        color: black;
+        color: var(--fg);
         margin: 4px 20px;
         font-size: 20px;
     }
