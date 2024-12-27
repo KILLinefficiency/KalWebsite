@@ -1,6 +1,5 @@
 <style>
     .navbar {
-        width: 100vw;
         height: 7vh;
         display: flex;
         justify-content: center;
