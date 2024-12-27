@@ -29,7 +29,7 @@
 </style>
 
 <div class = "navbar">
-    <a href="/">Homepage</a>
+    <a href="/">Home</a>
     <a href="/docs">Docs</a>
     <a href="/blog">Blog</a>
 </div>

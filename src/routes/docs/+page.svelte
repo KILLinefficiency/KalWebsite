@@ -1,9 +1,5 @@
-<h1>Content</h1>
-<h1>Content</h1>
-<h1>Content</h1>
-<h1>Content</h1>
-<h1>Content</h1>
-<h1>Content</h1>
-<h1>Content</h1>
-<h1>Content</h1>
-<h1>Content</h1>
+<script>
+    import Content from "$lib/Content.svelte";
+</script>
+
+<Content title="Kal" desc="Introduction" />

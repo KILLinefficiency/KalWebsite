@@ -10,6 +10,6 @@
     }
 </style>
 
-<Navbar/>
+<Navbar />
 
 {@render children()}

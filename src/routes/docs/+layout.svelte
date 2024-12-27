@@ -7,52 +7,19 @@
         grid-template-columns: 30% 60%;
         justify-content: center;
         height: 90vh;
+        gap: 15px;
     }
-    .panel {
-        background-color: tomato;
+    .panel, .content {
+        /*background-color: tomato;*/
         overflow: auto;
-    }
-    .content {
-        background-color: lightgreen;
+        border-top: 3px solid black;
+        border-bottom: 3px solid black;
     }
 </style>
 
 <div class = "container">
     <div class = "grid">
         <div class = "panel">
-            <h1>Panel</h1>
-            <h1>Panel</h1>
-            <h1>Panel</h1>
-            <h1>Panel</h1>
-            <h1>Panel</h1>
-            <h1>Panel</h1>
-            <h1>Panel</h1>
-            <h1>Panel</h1>
-            <h1>Panel</h1>
-            <h1>Panel</h1>
-            <h1>Panel</h1>
-            <h1>Panel</h1>
-            <h1>Panel</h1>
-            <h1>Panel</h1>
-            <h1>Panel</h1>
-            <h1>Panel</h1>
-            <h1>Panel</h1>
-            <h1>Panel</h1>
-            <h1>Panel</h1>
-            <h1>Panel</h1>
-            <h1>Panel</h1>
-            <h1>Panel</h1>
-            <h1>Panel</h1>
-            <h1>Panel</h1>
-            <h1>Panel</h1>
-            <h1>Panel</h1>
-            <h1>Panel</h1>
-            <h1>Panel</h1>
-            <h1>Panel</h1>
-            <h1>Panel</h1>
-            <h1>Panel</h1>
-            <h1>Panel</h1>
-            <h1>Panel</h1>
             <h1>Panel</h1>
             <h1>Panel</h1>
             <h1>Panel</h1>
