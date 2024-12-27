@@ -1,2 +1,15 @@
-<h1>Welcome to SvelteKit</h1>
-<p>Visit <a href="https://svelte.dev/docs/kit">svelte.dev/docs/kit</a> to read the documentation</p>
+<style>
+    div {
+        height: 93vh;
+        margin: 0px;
+        padding: 0px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: lightgreen;
+    }
+</style>
+
+<div>
+    <h1>Hello Kal</h1>
+</div>
