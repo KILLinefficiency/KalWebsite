@@ -1,5 +1,5 @@
 <style>
-    div {
+    .main {
         height: 90vh;
         margin: 0px;
         padding: 0px;
@@ -18,7 +18,7 @@
     }
 </style>
 
-<div>
+<div class = "main">
     <p class = "title">Kal</p>
     <p class = "line">A general purpose programming language!</p>
 </div>

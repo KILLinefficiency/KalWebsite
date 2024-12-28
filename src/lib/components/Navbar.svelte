@@ -1,4 +1,17 @@
+<script>
+    let theme = $state("dark");
+    
+    function switchTheme() {
+        theme = (theme === "light") ? "dark" : "light";
+    }
+</script>
+
 <style>
+    .top {
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+    }
     .navbar {
         height: 10vh;
         display: flex;
@@ -9,8 +22,8 @@
     }
     .navbar a {
         text-decoration: none;
-        color: var(--fg);
         font-size: 30px;
+        color: var(--fg);
     }
 
     .navbar a:hover {
@@ -28,8 +41,21 @@
     }
 </style>
 
-<div class = "navbar">
-    <a href="/">Home</a>
-    <a href="/docs">Docs</a>
-    <a href="/blog">Blog</a>
+<svelte:head>
+    <link rel="stylesheet" href="/src/lib/themes/{theme}.css" />
+</svelte:head>
+
+<div class = "top">
+    <div class = "leading">
+    </div>
+
+    <div class = "navbar">
+        <a href="/">Home</a>
+        <a href="/docs">Docs</a>
+        <a href="/blog">Blog</a>
+    </div>
+
+    <div class = "trailing">
+        <button onclick={switchTheme}>Theme</button>
+    </div>
 </div>

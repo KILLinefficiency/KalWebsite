@@ -1,4 +1,14 @@
+/*
+    Dark Theme adapted from "Catppuccin Mocha".
+    URL: https://catppuccin.com/palette
+*/
+
 :root {
-    --fg: white;
-    --bg: black;
+    --fg:     #CDD6F4;
+    --bg:     #11111B;
+    --base:   #1E1E2E;
+    --red:    #F38BA8;
+    --yellow: #F9E2AF;
+    --green:  #A6E3A1;
+    --blue:   #89B4FA;
 }

@@ -1,4 +1,14 @@
+/*
+    Light Theme adapted from "Catppuccin Latte".
+    URL: https://catppuccin.com/palette
+*/
+
 :root {
-    --fg: black;
-    --bg: white;
+    --fg:     #4C4F69;
+    --bg:     #DCE0E8;
+    --base:   #EFF1F5;
+    --red:    #D20F39;
+    --yellow: #DF8E1D;
+    --green:  #40A02B;
+    --blue:   #1E66FE;
 }

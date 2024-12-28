@@ -11,12 +11,17 @@
         justify-content: center;
         height: 80vh;
         gap: 15px;
+        color: var(--fg);
+        background-color: var(--bg);
     }
     .panel, .content {
-        /*background-color: tomato;*/
+        color: var(--fg);
+        background-color: var(--bg);
         overflow: auto;
-        border-top: 3px solid black;
-        border-bottom: 3px solid black;
+        /*border-top: 3px solid black;
+        border-bottom: 3px solid black;*/
+        background-color: var(--base);
+        border-radius: 20px;
     }
     li {
         font-size: 25px;
@@ -24,8 +29,8 @@
     }
     a {
         text-decoration: none;
-        color: var(--fg);
         font-size: 25px;
+        color: var(--fg);
     }
     a:hover, li:hover {
         font-weight: bold;
