@@ -1,6 +1,10 @@
 <script>
     let theme = $state("dark");
-    
+
+    let themeName = $derived.by(() => {
+        return theme === "light" ? "Dark" : "Light";
+    });
+
     function switchTheme() {
         theme = (theme === "light") ? "dark" : "light";
     }
@@ -31,6 +35,17 @@
         animation-duration: 1s;
     }
 
+    button {
+        color: var(--fg);
+        background-color: var(--base);
+        font-size: 15px;
+        padding: 10px;
+        outline: none;
+        border: none;
+        width: 60px;
+        border-radius: 10px;
+    }
+
     @keyframes underline {
         from {
             border-bottom: 2px solid white;
@@ -56,6 +71,6 @@
     </div>
 
     <div class = "trailing">
-        <button onclick={switchTheme}>Theme</button>
+        <button onclick={switchTheme}>{themeName}</button>
     </div>
 </div>
