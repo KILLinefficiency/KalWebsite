@@ -34,6 +34,7 @@
     }
     a:hover, li:hover {
         font-weight: bold;
+        color: var(--green);
     }
 </style>
 
