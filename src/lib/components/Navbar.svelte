@@ -25,33 +25,35 @@
         font-weight: bold;
     }
     .navbar a {
-        text-decoration: none;
         font-size: 30px;
+        padding: 0px 10px;
         color: var(--fg);
+        text-decoration: none;
     }
 
     .navbar a:hover {
         animation-name: underline;
-        animation-duration: 1s;
+        animation-duration: 0.5s;
+        border-bottom: 4px solid var(--green);
     }
 
     button {
+        width: 60px;
+        height: 40px;
         color: var(--fg);
         background-color: var(--base);
         font-size: 15px;
         padding: 10px;
-        outline: none;
         border: none;
-        width: 60px;
         border-radius: 10px;
     }
 
     @keyframes underline {
         from {
-            border-bottom: 2px solid white;
+            border-bottom: 1px solid var(--bg);
         }
         to {
-            border-bottom: 4px solid red;
+            border-bottom: 4px solid var(--green);
         }
     }
 </style>

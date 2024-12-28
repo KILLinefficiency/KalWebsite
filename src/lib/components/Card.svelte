@@ -3,21 +3,27 @@
 </script>
 
 <style>
+    .container {
+        display: flex;
+        justify-content: center;
+    }
     .card {
         padding: 10px;
         margin: 25px;
-        font-size: 20px;
+        font-size: 22.5px;
     }
     .warn {
         color: var(--red);
-        border-left: 3px solid var(--red);
+        border-left: 5px solid var(--red);
     }
     .info {
         color: var(--yellow);
-        border-left: 3px solid var(--yellow);
+        border-left: 5px solid var(--yellow);
     }
 </style>
 
-<div class = {`card ${type}`}>
-    {@render children()}
+<div class = "container">
+    <div class = {`card ${type}`}>
+        {@render children()}
+    </div>
 </div>

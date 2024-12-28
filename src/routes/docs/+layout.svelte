@@ -9,17 +9,15 @@
         display: grid;
         grid-template-columns: 30% 60%;
         justify-content: center;
-        height: 80vh;
+        height: 85vh;
         gap: 15px;
         color: var(--fg);
         background-color: var(--bg);
     }
     .panel, .content {
         color: var(--fg);
-        background-color: var(--bg);
         overflow: auto;
-        /*border-top: 3px solid black;
-        border-bottom: 3px solid black;*/
+        scrollbar-width: none;
         background-color: var(--base);
         border-radius: 20px;
     }
