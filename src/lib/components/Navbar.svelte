@@ -29,8 +29,8 @@
 
     .navbar a:hover {
         animation-name: highlight;
-        animation-duration: 0.25s;
-        color: var(--green);
+        animation-duration: 0.5s;
+        animation-fill-mode: forwards;
     }
 
     button {
@@ -50,6 +50,8 @@
         }
         to {
             color: var(--green);
+            font-size: 30px;
+            padding: 0px 5px;
         }
     }
 </style>

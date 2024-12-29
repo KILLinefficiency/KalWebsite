@@ -17,6 +17,11 @@
         color: var(--fg);
         background-color: var(--bg);
     }
+
+    :global(::selection) {
+        color: var(--blue);
+        background-color: var(--base);
+    }
 </style>
 
 <Navbar />

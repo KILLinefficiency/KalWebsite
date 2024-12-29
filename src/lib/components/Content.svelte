@@ -28,6 +28,9 @@
         justify-content: center;
         gap: 10%;
         padding-bottom: 30px;
+        /*justify-content: space-between;
+        padding-left: 40px;
+        padding-right: 40px;*/
     }
     a {
         font-size: 20px;

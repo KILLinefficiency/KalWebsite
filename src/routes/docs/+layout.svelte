@@ -17,7 +17,6 @@
         color: var(--fg);
         overflow: auto;
         scrollbar-width: none;
-        border-radius: 20px;
     }
     li {
         margin: 10px 0px;

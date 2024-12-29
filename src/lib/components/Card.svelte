@@ -8,7 +8,7 @@
         justify-content: center;
     }
     .card {
-        padding: 10px;
+        padding: 15px;
         margin: 25px;
         font-size: 22.5px;
     }
