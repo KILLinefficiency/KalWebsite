@@ -7,10 +7,9 @@
 <style>
     .grid {
         display: grid;
-        grid-template-columns: 30% 60%;
+        grid-template-columns: 10% 60%;
         justify-content: center;
-        height: 85vh;
-        gap: 15px;
+        height: 93vh;
         color: var(--fg);
         background-color: var(--bg);
     }
@@ -18,21 +17,18 @@
         color: var(--fg);
         overflow: auto;
         scrollbar-width: none;
-        background-color: var(--base);
         border-radius: 20px;
     }
     li {
-        font-size: 25px;
         margin: 10px 0px;
     }
-    a {
+    a, li {
         text-decoration: none;
-        font-size: 25px;
-        color: var(--fg);
+        font-size: 20px;
+        color: var(--blue);
     }
     a:hover, li:hover {
         font-weight: bold;
-        color: var(--green);
     }
 </style>
 

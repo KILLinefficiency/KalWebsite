@@ -1,12 +1,8 @@
 <script>
     let theme = $state("dark");
 
-    let themeName = $derived.by(() => {
-        return theme === "light" ? "Dark" : "Light";
-    });
-
     function switchTheme() {
-        theme = (theme === "light") ? "dark" : "light";
+        theme = (theme === "dark") ? "light" : "dark";
     }
 </script>
 
@@ -17,7 +13,7 @@
         justify-content: space-around;
     }
     .navbar {
-        height: 10vh;
+        height: 7vh;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -25,16 +21,16 @@
         font-weight: bold;
     }
     .navbar a {
-        font-size: 30px;
+        font-size: 25px;
         padding: 0px 10px;
         color: var(--fg);
         text-decoration: none;
     }
 
     .navbar a:hover {
-        animation-name: underline;
-        animation-duration: 0.5s;
-        border-bottom: 4px solid var(--green);
+        animation-name: highlight;
+        animation-duration: 0.25s;
+        color: var(--green);
     }
 
     button {
@@ -48,12 +44,12 @@
         border-radius: 10px;
     }
 
-    @keyframes underline {
+    @keyframes highlight {
         from {
-            border-bottom: 1px solid var(--bg);
+            color: var(--fg);
         }
         to {
-            border-bottom: 4px solid var(--green);
+            color: var(--green);
         }
     }
 </style>
@@ -73,6 +69,6 @@
     </div>
 
     <div class = "trailing">
-        <button onclick={switchTheme}>{themeName}</button>
+        <button onclick={switchTheme}>{theme === "dark" ? "Light" : "Dark"}</button>
     </div>
 </div>
