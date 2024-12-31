@@ -1,14 +1,15 @@
 <script>
-    let { word = "Tooltip Word", width = "300px", children } = $props();
+    let {
+        word = "Tooltip Word",
+        size = 3,
+        children
+    } = $props();
 
     let left = $derived.by(() => {
-        switch(width) {
-            case "300px":
-                return "-100%";
-            case "200px":
-                return "-50%";
-            case "100px":
-                return "0%";
+        switch(Number(size)) {
+            case 3: return "-100%";
+            case 2: return "-50%";
+            case 1: return "0%";
         }
     });
 </script>
@@ -31,7 +32,6 @@
         background-color: var(--base);
         border-bottom: 5px solid var(--blue);
         bottom: 100%;
-        /*left: -100%;*/
     }
 
     .word:hover .tooltip {
@@ -41,5 +41,7 @@
 
 <span class = "word">
     {word}
-    <div class = "tooltip" style:width style:left>{@render children()}</div>
+    <div class = "tooltip" style:width="{size * 100}px" style:left>
+        {@render children()}
+    </div>
 </span>

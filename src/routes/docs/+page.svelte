@@ -22,17 +22,17 @@ Interdum leo fames tempor accumsan ligula rutrum fringilla? Iaculis nec dui orci
 Nascetur metus ut potenti per quisque sodales. Duis fermentum hendrerit eleifend natoque nulla fusce varius. Montes maximus tempor vel ut; malesuada dictum nec. Sollicitudin in vestibulum tortor augue lobortis vestibulum taciti. Metus molestie consequat viverra non dictumst vivamus eros. Torquent malesuada purus euismod enim dui risus. Integer blandit nec auctor maximus gravida ultricies himenaeos inceptos proin. Netus tristique dolor lectus tortor neque massa? Etiam mollis risus dictum, ligula semper torquent. Libero pulvinar platea ad nibh venenatis elit viverra.
 Fermentum quis ut dis gravida sagittis iaculis quis; cursus feugiat. Habitasse ridiculus netus class; tortor maecenas malesuada. Metus in eros interdum egestas phasellus. Donec vehicula blandit elementum quam orci aliquet. Tincidunt class faucibus metus dui nam. Penatibus habitasse semper arcu cubilia nostra ultrices purus. Vehicula ante aptent iaculis montes urna. Tempor varius dapibus nunc vitae elementum odio platea. Feugiat penatibus mattis, ridiculus habitant venenatis fermentum vehicula.
 
-<Tooltip word="Programming" width="300px">
+<Tooltip word="Programming" size=3>
     Lorem ipsum odor amet, consectetuer adipiscing elit. Turpis in metus potenti erat cras parturient. Aliquam ut placerat himenaeos aliquam dignissim turpis tincidunt.
     Lorem ipsum odor amet, consectetuer adipiscing elit. Turpis in metus potenti erat cras parturient. Aliquam ut placerat himenaeos aliquam dignissim turpis tincidunt.
     Lorem ipsum odor amet, consectetuer adipiscing elit. Turpis in metus potenti erat cras parturient. Aliquam ut placerat himenaeos aliquam dignissim turpis tincidunt.
 </Tooltip>
-<Tooltip word="Programming" width="200px">
+<Tooltip word="Programming" size=2>
     Lorem ipsum odor amet, consectetuer adipiscing elit. Turpis in metus potenti erat cras parturient. Aliquam ut placerat himenaeos aliquam dignissim turpis tincidunt.
     Lorem ipsum odor amet, consectetuer adipiscing elit. Turpis in metus potenti erat cras parturient. Aliquam ut placerat himenaeos aliquam dignissim turpis tincidunt.
     Lorem ipsum odor amet, consectetuer adipiscing elit. Turpis in metus potenti erat cras parturient. Aliquam ut placerat himenaeos aliquam dignissim turpis tincidunt.
 </Tooltip>
-<Tooltip word="Programming" width="100px">
+<Tooltip word="Programming" size=1>
     Lorem ipsum odor amet, consectetuer adipiscing elit. Turpis in metus potenti erat cras parturient. Aliquam ut placerat himenaeos aliquam dignissim turpis tincidunt.
     Lorem ipsum odor amet, consectetuer adipiscing elit. Turpis in metus potenti erat cras parturient. Aliquam ut placerat himenaeos aliquam dignissim turpis tincidunt.
     Lorem ipsum odor amet, consectetuer adipiscing elit. Turpis in metus potenti erat cras parturient. Aliquam ut placerat himenaeos aliquam dignissim turpis tincidunt.
