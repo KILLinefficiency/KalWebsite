@@ -1,5 +1,8 @@
 <script>
-    let { type = "info", children } = $props();
+    let {
+        type = "info",
+        children
+    } = $props();
 </script>
 
 <style>

@@ -1,10 +1,10 @@
 <script>
     let {
-            title = "Title",
-            desc = null,
-            previous = null,
-            next = null,
-            children
+        title = "Title",
+        desc = null,
+        previous = null,
+        next = null,
+        children
     } = $props();
 </script>
 
