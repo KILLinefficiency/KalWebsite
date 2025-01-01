@@ -57,7 +57,7 @@
 </style>
 
 <svelte:head>
-    <link rel="stylesheet" href="/src/lib/themes/{theme}.css" />
+    <link rel="stylesheet" href="{theme}.css" />
 </svelte:head>
 
 <div class = "top">
