@@ -4,7 +4,22 @@
         caption = null
     } = $props();
 
+    const keywords = [/stdout/g];
+    const string = /\".*\"/;
+    const comments = [/;[\w\d\s]+;/, /;;.*/];
+
     function highlight(text) {
+        for(let keyword of keywords) {
+            text = text.replace(keyword, `<span style='color: var(--red)'>${(text.match(keyword) ?? [""])[0]}</span>`);
+        }
+
+        for(let comment of comments) {
+            text = text.replace(comment, `<span style='color: var(--yellow)'>${text.match(comment)}</span>`);
+        }
+
+        text = text.replace(string, `<span style='color: var(--green)'>${text.match(string)}</span>`);
+
+        console.log(text);
         return text;
     }
 </script>
@@ -21,10 +36,10 @@
         background-color: var(--base);
         border-radius: 10px;
         font-size: 20px;
-        width: 400px;
+        max-width: 500px;
     }
 
-    .top-bar {
+    .topBar {
         display: flex;
         justify-content: start;
         gap: 10px;
@@ -34,8 +49,7 @@
         height: 16px;
         width: 16px;
         border-radius: 10px;
-        margin-bottom: 15px;
-        
+        margin-bottom: 20px;
     }
 
     .first {
@@ -52,12 +66,13 @@
 
     pre {
         margin: 0px;
+        font-family: "JetBrains Mono", serif;
     }
 </style>
 
 <div class = "box">
     <div class = "code">
-        <div class = "top-bar">
+        <div class = "topBar">
             <div class = "first"></div>
             <div class = "second"></div>
             <div class = "third"></div>

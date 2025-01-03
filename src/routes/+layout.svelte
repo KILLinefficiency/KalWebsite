@@ -6,6 +6,7 @@
 
 <style>
     @import url('https://fonts.googleapis.com/css2?family=Abel&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap');
 
     :global(html) {
         scroll-behavior: smooth;
@@ -13,9 +14,9 @@
 
     :global(body) {
         margin: 0px;
-        font-family: "Abel";
         color: var(--fg);
         background-color: var(--bg);
+        font-family: "Abel", serif;
     }
 
     :global(::selection) {
