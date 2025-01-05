@@ -1,6 +1,9 @@
 /*
     Dark Theme adapted from "Catppuccin Mocha".
     URL: https://catppuccin.com/palette
+
+    Gray Color adpated from Dracula Theme.
+    URL: https://draculatheme.com/contribute
 */
 
 :root {
@@ -11,4 +14,5 @@
     --yellow: #F9E2AF;
     --green:  #A6E3A1;
     --blue:   #89B4FA;
+    --gray:   #6272A4;
 }

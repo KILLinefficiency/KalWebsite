@@ -4,9 +4,19 @@
         caption = null
     } = $props();
 
+    let copyLabel = $state("Copy");
+
     const keywords = [/stdout/g];
     const string = /\".*\"/;
     const comments = [/;[\w\d\s]+;/, /;;.*/];
+
+    async function copy() {
+        await navigator.clipboard.writeText(code);
+        copyLabel = "Copied";
+        setTimeout(() => {
+            copyLabel = "Copy";
+        }, 2000);
+    }
 
     function highlight(text) {
         for(let keyword of keywords) {
@@ -14,7 +24,7 @@
         }
 
         for(let comment of comments) {
-            text = text.replace(comment, `<span style='color: var(--yellow)'>${text.match(comment)}</span>`);
+            text = text.replace(comment, `<span style='color: var(--gray)'>${text.match(comment)}</span>`);
         }
 
         text = text.replace(string, `<span style='color: var(--green)'>${text.match(string)}</span>`);
@@ -34,22 +44,37 @@
     .code {
         padding: 20px;
         background-color: var(--base);
+        color: var(--fg);
         border-radius: 10px;
         font-size: 20px;
         max-width: 500px;
     }
 
-    .topBar {
+    .top {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 20px;
+    }
+    .decoration {
         display: flex;
         justify-content: start;
         gap: 10px;
+    }
+
+    .copy {
+        border: none;
+        color: var(--fg);
+        background-color: var(--base);
+        font-family: "Abel", serif;
+        font-weight: bold;
+        width: 50px;
+        font-size: 14px;
     }
 
     .first, .second, .third {
         height: 16px;
         width: 16px;
         border-radius: 10px;
-        margin-bottom: 20px;
     }
 
     .first {
@@ -72,10 +97,15 @@
 
 <div class = "box">
     <div class = "code">
-        <div class = "topBar">
-            <div class = "first"></div>
-            <div class = "second"></div>
-            <div class = "third"></div>
+        <div class = "top">
+            <div class = "decoration">
+                <div class = "first"></div>
+                <div class = "second"></div>
+                <div class = "third"></div>
+            </div>
+            <button class = "copy" onclick={copy}>
+                {copyLabel}
+            </button>
         </div>
 
         <pre>{@html highlight(code)}</pre>
