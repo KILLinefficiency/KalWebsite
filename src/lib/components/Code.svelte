@@ -35,7 +35,12 @@
             text = text.replace(comment, `<span style='color: var(--gray)'>${text.match(comment)}</span>`);
         }
 
-        text = text.replace(string, `<span style='color: var(--green)'>${(text.match(string) ?? [""])[0]}</span>`);
+        const strings = text.match(string);
+        if(strings != null) {
+            for(let string of strings) {
+                text = text.replace(string, `<span style='color: var(--green)'>${string}</span>`);
+            }
+        }
 
         console.log(text);
         return text;
