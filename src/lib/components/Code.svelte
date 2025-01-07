@@ -7,14 +7,14 @@
 
     let copyLabel = $state("Copy");
     let outputLabel = $state("Show");
-    let outputDisplay = $state("none");
+    let outputDisplay = $state(false);
 
     const keywords = [/stdout/g];
-    const string = /\".*\"/;
+    const string = /\".*?\"/g;
     const comments = [/;[\w\d\s]+;/, /;;.*/];
 
     function toggleOutput() {
-        outputDisplay = (outputDisplay === "none") ? "block" : "none";
+        outputDisplay = !outputDisplay;
         outputLabel = (outputLabel === "Show") ? "Hide" : "Show";
     }
 
@@ -35,7 +35,7 @@
             text = text.replace(comment, `<span style='color: var(--gray)'>${text.match(comment)}</span>`);
         }
 
-        text = text.replace(string, `<span style='color: var(--green)'>${text.match(string)}</span>`);
+        text = text.replace(string, `<span style='color: var(--green)'>${(text.match(string) ?? [""])[0]}</span>`);
 
         console.log(text);
         return text;
@@ -122,11 +122,6 @@
         margin-bottom: 10px;
         font-family: "JetBrains Mono", serif;
     }
-
-    /*hr {
-        margin: 15px 0px;
-        border: 1px solid var(--gray);
-    }*/
 </style>
 
 <div class = "box">
@@ -151,10 +146,11 @@
 
         <pre>{@html highlight(code)}</pre>
 
-        <div class = "output" style:display={outputDisplay}>
-            <!-- <hr /> -->
-            {output}
-        </div>
+        {#if outputDisplay}
+            <div class = "output">
+                {output}
+            </div>
+        {/if}
     </div>
 
     {#if caption}
