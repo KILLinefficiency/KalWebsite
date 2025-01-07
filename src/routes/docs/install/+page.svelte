@@ -4,5 +4,5 @@
 </script>
 
 <Content title="Installing Kal" desc="From Github" next="x" previous="/docs/">
-    <Code caption="Hello World" code={'stdout "Hello World". ;; print hello'} />
+    <Code caption="Hello World" code={'stdout "Hello World". ;; print hello'} output={"Hello World"} />
 </Content>

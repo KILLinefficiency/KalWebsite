@@ -1,14 +1,22 @@
 <script>
     let {
         code,
-        caption = null
+        caption = null,
+        output = null
     } = $props();
 
     let copyLabel = $state("Copy");
+    let outputLabel = $state("Show");
+    let outputDisplay = $state("none");
 
     const keywords = [/stdout/g];
     const string = /\".*\"/;
     const comments = [/;[\w\d\s]+;/, /;;.*/];
+
+    function toggleOutput() {
+        outputDisplay = (outputDisplay === "none") ? "block" : "none";
+        outputLabel = (outputLabel === "Show") ? "Hide" : "Show";
+    }
 
     async function copy() {
         await navigator.clipboard.writeText(code);
@@ -53,22 +61,43 @@
     .top {
         display: flex;
         justify-content: space-between;
-        margin-bottom: 20px;
     }
+
     .decoration {
         display: flex;
         justify-content: start;
+        align-items: center;
         gap: 10px;
     }
 
-    .copy {
+    .buttons {
+        display: flex;
+        justify-content: end;
+        gap: 10px;
+    }
+
+    .copy, .output-button {
         border: none;
         color: var(--fg);
-        background-color: var(--base);
+        background-color: var(--surface);
+        border-radius: 5px;
         font-family: "Abel", serif;
         font-weight: bold;
-        width: 50px;
+        width: 60px;
         font-size: 14px;
+        padding: 3px;
+    }
+
+    .output-button {
+        width: 90px;
+    }
+
+    .output {
+        font-family: "JetBrains Mono", serif;
+        background-color: var(--surface);
+        margin-top: 20px;
+        border-radius: 10px;
+        padding: 10px;
     }
 
     .first, .second, .third {
@@ -90,9 +119,14 @@
     }
 
     pre {
-        margin: 0px;
+        margin-bottom: 10px;
         font-family: "JetBrains Mono", serif;
     }
+
+    /*hr {
+        margin: 15px 0px;
+        border: 1px solid var(--gray);
+    }*/
 </style>
 
 <div class = "box">
@@ -103,12 +137,24 @@
                 <div class = "second"></div>
                 <div class = "third"></div>
             </div>
-            <button class = "copy" onclick={copy}>
-                {copyLabel}
-            </button>
+            <div class = "buttons">
+                <button class = "copy" onclick={copy}>
+                    {copyLabel}
+                </button>
+                {#if output}
+                    <button class = "output-button" onclick={toggleOutput}>
+                        {outputLabel} Output
+                    </button>
+                {/if}
+            </div>
         </div>
 
         <pre>{@html highlight(code)}</pre>
+
+        <div class = "output" style:display={outputDisplay}>
+            <!-- <hr /> -->
+            {output}
+        </div>
     </div>
 
     {#if caption}
