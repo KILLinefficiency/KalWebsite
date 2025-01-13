@@ -34,8 +34,18 @@
         bottom: 100%;
     }
 
+    @keyframes appear {
+        from {
+            opacity: 0;
+        }
+        to {
+            opacity: 1;
+        }
+    }
+
     .word:hover .tooltip {
         display: block;
+        animation: appear 0.33s;
     }
 </style>
 
