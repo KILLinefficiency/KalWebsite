@@ -10,6 +10,7 @@
 
     :global(html) {
         scroll-behavior: smooth;
+        scrollbar-width: none;
     }
 
     :global(body) {
