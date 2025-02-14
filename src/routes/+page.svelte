@@ -16,6 +16,19 @@
     .line {
         font-size: 50px;
     }
+
+    @media screen and (max-width: 1000px) {
+        .main {
+            width: 100vw;
+            height: 80vh;
+        }
+        .title {
+            font-size: 100px;
+        }
+        .line {
+            font-size: 20px;
+        }
+    }
 </style>
 
 <div class = "main">

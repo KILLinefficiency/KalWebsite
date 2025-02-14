@@ -23,6 +23,18 @@
         color: var(--yellow);
         border-left: 5px solid var(--yellow);
     }
+
+    @media screen and (max-width: 1000px) {
+        .card {
+            font-size: 15px;
+        }
+        .warn {
+            border-left: 2px solid var(--red);
+        }
+        .info {
+            border-left: 2px solid var(--yellow);
+        }
+    }
 </style>
 
 <div class = "container">

@@ -127,6 +127,25 @@
         margin-bottom: 10px;
         font-family: "JetBrains Mono", serif;
     }
+
+    @media screen and (max-width: 1000px) {
+        .code {
+            font-size: 13px;
+            max-width: 300px;
+            overflow-x: auto;
+            scrollbar-width: none;
+        }
+        .first, .second, .third {
+            height: 13px;
+            width: 13px;
+        }
+        .decoration {
+            gap: 7px;
+        }
+        .copy, .output-button {
+            font-size: 12px;
+        }
+    }
 </style>
 
 <div class = "box">

@@ -54,6 +54,19 @@
             padding: 0px 5px;
         }
     }
+
+    @media screen and (max-width: 1000px) {
+        .navbar {
+            height: 10vh;
+            gap: 50px;
+        }
+        .navbar a {
+            font-size: 15px;
+        }
+        .leading, .trailing {
+            display: none;
+        }
+    }
 </style>
 
 <svelte:head>

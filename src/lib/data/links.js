@@ -1,4 +1,20 @@
 export default [
     ["Introduction", "/docs/"],
+    ["Introduction", "/docs/"],
+    ["Introduction", "/docs/"],
+    ["Introduction", "/docs/"],
+    ["Introduction", "/docs/"],
+    ["Introduction", "/docs/"],
+    ["Introduction", "/docs/"],
+    ["Introduction", "/docs/"],
+    ["Introduction", "/docs/"],
+    ["Introduction", "/docs/"],
+    ["Introduction", "/docs/"],
+    ["Introduction", "/docs/"],
+    ["Introduction", "/docs/"],
+    ["Introduction", "/docs/"],
+    ["Introduction", "/docs/"],
+    ["Introduction", "/docs/"],
+    ["Introduction", "/docs/"],
     ["Installing Kal", "/docs/install"]
 ]

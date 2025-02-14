@@ -8,6 +8,15 @@
         display: grid;
         grid-template-columns: 30% 70%;
     }
+
+    @media screen and (max-width: 1000px) {
+        .block {
+            width: 100%;
+        }
+        h1, h3 {
+            font-size: 40px;
+        }
+    }
     .header {
         margin: 0px;
         display: flex;

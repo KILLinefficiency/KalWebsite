@@ -38,6 +38,12 @@
         color: var(--blue);
         text-decoration: none;
     }
+
+    @media screen and (max-width: 1000px) {
+        .body, a {
+            font-size: 15px;
+        }
+    }
 </style>
 
 <div>
