@@ -1,6 +1,6 @@
 export default [
     ["Introduction", "/docs/"],
-    ["Introduction", "/docs/"],
+    ["Some very long title in the contents panel", "/docs/"],
     ["Introduction", "/docs/"],
     ["Introduction", "/docs/"],
     ["Introduction", "/docs/"],
