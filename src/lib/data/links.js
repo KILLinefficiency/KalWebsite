@@ -1,20 +1,5 @@
 export default [
     ["Introduction", "/docs/"],
     ["Some very long title in the contents panel", "/docs/"],
-    ["Introduction", "/docs/"],
-    ["Introduction", "/docs/"],
-    ["Introduction", "/docs/"],
-    ["Introduction", "/docs/"],
-    ["Introduction", "/docs/"],
-    ["Introduction", "/docs/"],
-    ["Introduction", "/docs/"],
-    ["Introduction", "/docs/"],
-    ["Introduction", "/docs/"],
-    ["Introduction", "/docs/"],
-    ["Introduction", "/docs/"],
-    ["Introduction", "/docs/"],
-    ["Introduction", "/docs/"],
-    ["Introduction", "/docs/"],
-    ["Introduction", "/docs/"],
     ["Installing Kal", "/docs/install"]
 ]
