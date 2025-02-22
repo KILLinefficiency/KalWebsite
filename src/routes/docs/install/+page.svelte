@@ -3,6 +3,6 @@
     import Code from "$lib/components/Code.svelte";
 </script>
 
-<Content title="Installing Kal" desc="From Github" next="x" previous="/docs/">
+<Content title="Installing Kal" desc="From Github" next="/docs" previous="/docs/">
     <Code caption="Hello World" code={'stdout "Hello World". ;; print hello'} output={"Hello World"} />
 </Content>

@@ -5,10 +5,18 @@
     let { children } = $props();
 
     async function search(query) {
-        query = query.toLowerCase();
-        return (query === "") ? Links : Links.filter(data => 
-            data[0].toLowerCase().includes(query)
-        );
+        query = query.trim();
+        if(query === "") return Links;
+
+        const queryTokens = query.toLowerCase().split(" ");
+        return Links.filter(data => {
+            const title = data[0].toLowerCase();
+            return (
+                title.includes(query) ||
+                //data[2].some(tag => queryTokens.includes(tag)) ||
+                title.split(" ").some(tag => queryTokens.includes(tag))
+            );
+        });
     }
 </script>
 
