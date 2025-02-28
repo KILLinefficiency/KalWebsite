@@ -31,6 +31,10 @@
     }
 </style>
 
+<svelte:head>
+    <title>Home | Kal</title>
+</svelte:head>
+
 <div class = "main">
     <p class = "title">Kal</p>
     <p class = "line">A general purpose programming language!</p>

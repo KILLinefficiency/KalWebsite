@@ -18,6 +18,10 @@
     }
 </style>
 
+<svelte:head>
+    <title>Blog | Kal</title>
+</svelte:head>
+
 <div class = "main">
     <div class = "entries">
         {#each Blogs as blog, index}

@@ -47,6 +47,10 @@
     }
 </style>
 
+<svelte:head>
+    <title>{title} | Docs | Kal</title>
+</svelte:head>
+
 <div>
     <h1 class = "title">{title}</h1>
 
