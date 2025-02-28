@@ -34,7 +34,7 @@
     }
 
     button {
-        width: 60px;
+        width: 70px;
         height: 40px;
         color: var(--fg);
         background-color: var(--base);
@@ -42,6 +42,11 @@
         padding: 10px;
         border: none;
         border-radius: 10px;
+    }
+
+    .trailing {
+        display: flex;
+        gap: 20px;
     }
 
     @keyframes highlight {
@@ -85,5 +90,8 @@
 
     <div class = "trailing">
         <button onclick={switchTheme}>{theme === "dark" ? "Light" : "Dark"}</button>
+        <a target="_blank" href="https://www.github.com/KILLinefficiency/Kal/">
+            <button>GitHub</button>
+        </a>
     </div>
 </div>
