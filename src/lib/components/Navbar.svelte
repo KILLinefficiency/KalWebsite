@@ -10,14 +10,15 @@
     .top {
         display: flex;
         align-items: center;
-        justify-content: space-around;
+        justify-content: space-between;
+        margin: 0px 100px;
     }
     .navbar {
-        height: 7vh;
+        height: 10vh;
         display: flex;
         justify-content: center;
         align-items: center;
-        gap: 200px;
+        gap: 20px;
         font-weight: bold;
     }
     .navbar a {
@@ -78,14 +79,14 @@
     <link rel="stylesheet" href="/{theme}.css" />
 </svelte:head>
 
-<div class = "top">
-    <div class = "leading">
-    </div>
-
+<div id = "1" class = "top">
     <div class = "navbar">
         <a href="/">Home</a>
         <a href="/docs">Docs</a>
         <a href="/blog">Blog</a>
+    </div>
+
+    <div class = "leading">
     </div>
 
     <div class = "trailing">
