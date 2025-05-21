@@ -13,7 +13,7 @@
             const title = data[0].toLowerCase();
             return (
                 title.includes(query) ||
-                //data[2].some(tag => queryTokens.includes(tag)) ||
+                data[2].some(tag => queryTokens.includes(tag)) ||
                 title.split(" ").some(tag => queryTokens.includes(tag))
             );
         });
