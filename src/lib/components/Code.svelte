@@ -1,6 +1,7 @@
 <script>
     let {
         code,
+        lang = "kal",
         caption = null,
         output = null
     } = $props();
@@ -19,29 +20,41 @@
     }
 
     async function copy() {
-        await navigator.clipboard.writeText(code);
+        await navigator.clipboard.writeText(code.join("\n"));
         copyLabel = "Copied";
         setTimeout(() => {
             copyLabel = "Copy";
         }, 2000);
     }
 
-    function highlight(text) {
-        for(let keyword of keywords) {
-            text = text.replace(keyword, `<span style='color: var(--red)'>${(text.match(keyword) ?? [""])[0]}</span>`);
-        }
+    function highlight(lines, lang) {
+        let highlightedCode = [];
 
-        for(let comment of comments) {
-            text = text.replace(comment, `<span style='color: var(--gray)'>${text.match(comment)}</span>`);
-        }
+        for(let line of lines) {
+            if(lang === "kal") {
+                keywords.forEach((keyword) => {
+                    line = line.replace(keyword, `<span style='color: var(--red)'>${(line.match(keyword) ?? [""])[0]}</span>`)
+                });
 
-        const strings = text.match(string);
-        if(strings != null) {
-            for(let string of strings) {
-                text = text.replace(string, `<span style='color: var(--green)'>${string}</span>`);
+                comments.forEach((comment) => {
+                    line = line.replace(comment, `<span style='color: var(--gray)'>${line.match(comment)}</span>`);
+                });
+
+                const strings = line.match(string);
+                if(strings != null) {
+                    strings.forEach((string) => {
+                        line = line.replace(string, `<span style='color: var(--green)'>${string}</span>`);
+                    });
+                }
             }
+            else if(lang === "bash") {
+                //
+            }
+
+            highlightedCode.push(line);
         }
 
+        let text = highlightedCode.join("\n");
         console.log(text);
         return text;
     }
@@ -61,6 +74,7 @@
         border-radius: 10px;
         font-size: 20px;
         max-width: 500px;
+        min-width: 300px;
     }
 
     .top {
@@ -168,7 +182,7 @@
             </div>
         </div>
 
-        <pre>{@html highlight(code)}</pre>
+        <pre>{@html highlight(code, lang)}</pre>
 
         {#if outputDisplay}
             <div class = "output">

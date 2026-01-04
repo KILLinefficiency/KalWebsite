@@ -39,20 +39,6 @@
     .contents-title {
         display: none;
     }
-    li {
-        margin: 10px 0px;
-    }
-    ol {
-        padding-left: 25px;
-    }
-    a, li {
-        text-decoration: none;
-        font-size: 20px;
-        color: var(--blue);
-    }
-    a:hover, li:hover {
-        font-weight: bold;
-    }
 
     input {
         border: none;
@@ -102,9 +88,18 @@
             font-size: 16px;
             font-weight: bold;
         }
-        a, li {
-            font-size: 16px;
-        }
+    }
+
+    .topic {
+        font-size: 20px;
+        color: var(--blue);
+        text-decoration: none;
+        padding: 5px 10px;
+        margin: 3px 0px;
+        border-radius: 10px;
+    }
+    .topic:hover {
+        background-color: var(--surface)
     }
 </style>
 
@@ -113,21 +108,19 @@
         <div class = "panel">
             <div class = "contents-title">Contents</div>
             <input bind:value={ask} placeholder="Search for topics!" />
+
             {#await search(ask)}
                 <p class="search-tag">Searching...</p>
             {:then results}
                 {#if results.length !== 0}
-                    <ol>
-                        {#each results as link}
-                            <li>
-                                <a href={link[1]}>{link[0]}</a>
-                            </li>
-                        {/each}
-                    </ol>
+                    {#each results as link}
+                        <a class = "topic" href={link[1]}>{link[0]}</a>
+                    {/each}
                 {:else}
                     <p class="search-tag">No results found.</p>
                 {/if}
             {/await}
+
         </div>
         <div class = "content">
             {@render children()}

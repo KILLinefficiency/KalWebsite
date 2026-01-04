@@ -5,7 +5,22 @@
 </script>
 
 <Content title="Installing Kal" desc="From Github" next="/docs" previous="/docs/">
-    <Code caption="Hello World" code={'stdout "Hello World". ;; print hello'} output={"Hello World"} />
+    <Code
+        caption="Hello World"
+        code={
+            ['stdout "Hello World". ;; print hello']
+        }
+        output={"Hello World"}
+    />
+
+    <Code
+        caption="Linux"
+        code={
+            ["$ kal main.kal"]
+        }
+        output={"Done"}
+    />
+
     <Table header={["Hello", "World", "Hi"]} rows={[
         ["Clark", "Bruce", "Oliver"],
         ["Ben", "Kevin", "Gwen"],
