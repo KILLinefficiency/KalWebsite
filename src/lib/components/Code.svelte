@@ -62,6 +62,7 @@
 
 <style>
     .box {
+        margin: 30px 0px;
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -73,7 +74,7 @@
         color: var(--fg);
         border-radius: 10px;
         font-size: 20px;
-        max-width: 500px;
+        max-width: 1000px;
         min-width: 300px;
     }
 

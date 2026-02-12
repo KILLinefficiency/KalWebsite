@@ -14,7 +14,7 @@
         margin-top: 30px;
     }
     .desc {
-        font-size: 30px;
+        font-size: 20px;
     }
     .title, .desc {
         text-align: center;

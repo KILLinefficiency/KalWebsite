@@ -7,14 +7,7 @@ export default [
         ]
     ],
     [
-        "Some very long title in the contents panel",
-        "/docs/",
-        [
-            "second"
-        ]
-    ],
-    [
-        "Installing Kal",
+        "Install Kal",
         "/docs/install",
         [
             "third"
