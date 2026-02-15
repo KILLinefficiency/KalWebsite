@@ -2,9 +2,13 @@
     import Content from "$lib/components/Content.svelte";
     import Card from "$lib/components/Card.svelte";
     import Tooltip from "$lib/components/Tooltip.svelte";
+    import Fence from "$lib/components/Fence.svelte";
 </script>
 
 <Content title="Kal" desc="Introduction" next="/docs/install" previous="/docs">
+    <Fence>
+        Hello World
+    </Fence>
     Lorem ipsum odor amet, consectetuer adipiscing elit. Turpis in metus potenti erat cras parturient. Aliquam ut placerat himenaeos aliquam dignissim turpis tincidunt. Rhoncus ac dapibus vestibulum lectus luctus egestas dis? Massa ante vehicula inceptos amet eleifend volutpat platea. Senectus tempor facilisi elementum pulvinar lacinia tincidunt? Varius faucibus tempor viverra magna aliquam, habitant elementum est.
 Volutpat eleifend torquent taciti, velit rutrum aliquam bibendum ultricies ex. Leo nascetur augue etiam convallis orci vitae. Per mi aliquet vehicula odio enim eu. Mauris ut phasellus augue magna ridiculus lacinia praesent ornare. Montes sed et conubia gravida imperdiet scelerisque? Aliquam commodo consectetur purus scelerisque fames dapibus in tortor erat.
 Interdum leo fames tempor accumsan ligula rutrum fringilla? Iaculis nec dui orci vel ex duis luctus facilisis. Malesuada et nullam non ultricies ac aptent. Adipiscing nunc quisque massa viverra aliquam egestas. Tellus sed posuere etiam venenatis ultricies feugiat. Nec porttitor id sed ut dis mi vestibulum netus ultrices. Consectetur tincidunt curae congue facilisis sed. Ex fringilla sodales sem ullamcorper; id dis ipsum.

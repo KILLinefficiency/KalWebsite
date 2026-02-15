@@ -18,18 +18,20 @@
     Make sure you have required Linux utilities installed/updated before compiling Kal.
 
     <Code
-        code={
-            ["$ sudo apt install git bash gcc g++ -y"]
-        }
+        code={[
+            "$ sudo apt install \\",
+            "    git bash gcc g++ -y"
+        ]}
     />
 
     <ol>
         <li>
             Clone the Kal repository. Shallow clone for faster download.
             <Code
-                code={
-                    ["$ git clone --depth=1 https://www.github.com/KILLinefficiency/Kal"]
-                }
+                code={[
+                    "$ git clone --depth=1 \\",
+                    "    https://www.github.com/KILLinefficiency/Kal"
+                ]}
             />
         </li>
 
@@ -80,5 +82,4 @@
             </Card>
         </li>
     </ol>
-
 </Content>
