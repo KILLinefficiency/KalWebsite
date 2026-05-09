@@ -141,6 +141,7 @@
     pre {
         margin-bottom: 10px;
         font-family: "JetBrains Mono", serif;
+        font-variant-ligatures: none;
         overflow-x: auto;
     }
 
@@ -188,7 +189,7 @@
 
         {#if outputDisplay}
             <div class = "output">
-                {@html output.replace("\n", "<br />")}
+                {@html output.replace(/\n/g, "<br />")}
             </div>
         {/if}
     </div>

@@ -30,6 +30,7 @@
     @media screen and (max-width: 1000px) {
         .card {
             font-size: 15px;
+            margin: 15px 0px;
         }
         .warn {
             border-left: 2px solid var(--red);
