@@ -19,5 +19,12 @@ export default [
         [
             "third"
         ]
+    ],
+    [
+        "References",
+        "/docs/ref",
+        [
+            "fourth"
+        ]
     ]
 ];

@@ -62,6 +62,9 @@
     }
 
     @media screen and (max-width: 1000px) {
+        .top {
+            justify-content: center;
+        }
         .navbar {
             height: 10vh;
             gap: 50px;

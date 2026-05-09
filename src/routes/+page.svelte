@@ -66,7 +66,7 @@
     @media screen and (max-width: 1000px) {
         .main {
             width: 100vw;
-            height: 80vh;
+            height: 85vh;
         }
         .title {
             font-size: 100px;

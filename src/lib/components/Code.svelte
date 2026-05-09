@@ -75,7 +75,7 @@
         border-radius: 10px;
         font-size: 20px;
         max-width: 1000px;
-        min-width: 300px;
+        min-width: 500px;
     }
 
     .top {
@@ -141,13 +141,14 @@
     pre {
         margin-bottom: 10px;
         font-family: "JetBrains Mono", serif;
+        overflow-x: auto;
     }
 
     @media screen and (max-width: 1000px) {
         .code {
             font-size: 13px;
             max-width: 300px;
-            overflow-x: auto;
+            min-width: 250px;
             scrollbar-width: none;
         }
         .first, .second, .third {
@@ -187,7 +188,7 @@
 
         {#if outputDisplay}
             <div class = "output">
-                {output}
+                {@html output.replace("\n", "<br />")}
             </div>
         {/if}
     </div>
