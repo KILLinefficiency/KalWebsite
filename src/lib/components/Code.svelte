@@ -10,9 +10,17 @@
     let outputLabel = $state("Show");
     let outputDisplay = $state(false);
 
-    const keywords = [/stdout/g];
+    const keywords = [/var/g, /stdout/g, /fn/g, /loop/g, /\sin\s/g];
+    const preproc = /^@.+/g;
     const string = /\".*?\"/g;
     const comments = [/;[\w\d\s]+;/, /;;.*/];
+    const fn = /(?<!pkg):[a-zA-Z0-9_]+/g;
+
+    const bashCommands = [/(?<=\$\s)sudo/g, /(?<=\$\s)git/g, /(?<=\$\s)mkdir/g, /(?<=\$\s)export/g, /(?<=\$\s)echo/g, /(?<=\$\s)cd/g, /(?<=\$\s)kal/g];
+    const flag = /-[-a-zA-z0-9=]+/g;
+    const exec = /\.\/[\w\.]+/g;
+    const sigil = /^\$/g;
+    const bashStrings = [/\".*?\"/g, /\'.*?\'/g];
 
     function toggleOutput() {
         outputDisplay = !outputDisplay;
@@ -36,6 +44,10 @@
                     line = line.replace(keyword, `<span style='color: var(--red)'>${(line.match(keyword) ?? [""])[0]}</span>`)
                 });
 
+                line = line.replace(fn, `<span style='color: var(--yellow)'>${line.match(fn)}</span>`);
+
+                line = line.replace(preproc, `<span style='color: var(--blue)'>${line.match(preproc)}</span>`);
+
                 comments.forEach((comment) => {
                     line = line.replace(comment, `<span style='color: var(--gray)'>${line.match(comment)}</span>`);
                 });
@@ -48,7 +60,16 @@
                 }
             }
             else if(lang === "bash") {
-                //
+                line = line.replace(flag, `<span style='color: var(--blue)'>${line.match(flag)}</span>`);
+                // bashStrings.forEach((string) => {
+                //     line = line.replace(string, `<span style='color: var(--green)'>${line.match(string)}</span>`);
+                // });
+
+                line = line.replace(exec, `<span style='color: var(--yellow)'>${line.match(exec)}</span>`);
+                bashCommands.forEach((command) => {
+                    line = line.replace(command, `<span style='color: var(--red)'>${line.match(command)}</span>`);
+                });
+                line = line.replace(sigil, `<span style='color: var(--red); font-weight: bold;'>${line.match(sigil)}</span>`);
             }
 
             highlightedCode.push(line);

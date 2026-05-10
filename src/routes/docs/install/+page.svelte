@@ -18,6 +18,7 @@
     Make sure you have required Linux utilities installed/updated before compiling Kal.
 
     <Code
+        lang="bash"
         code={[
             "$ sudo apt install \\",
             "    git bash gcc g++ -y"
@@ -28,6 +29,7 @@
         <li>
             Clone the Kal repository. Shallow clone for faster download.
             <Code
+                lang="bash"
                 code={[
                     "$ git clone --depth=1 \\",
                     "    https://www.github.com/KILLinefficiency/Kal"
@@ -38,6 +40,7 @@
         <li>
             Optionally run tests to make sure the latest code is stable.
             <Code
+                lang="bash"
                 code={
                     ["$ ./build.sh test"]
                 }
@@ -47,6 +50,7 @@
         <li>
             Compile the Kal interpreter. This will put the compiled binary in the ./bin folder.
             <Code
+                lang="bash"
                 code={
                     ["$ ./build.sh compile"]
                 }
@@ -56,6 +60,7 @@
         <li>
             Build libkal. This will put libkal and the associated files in the ./bin folder.
             <Code
+                lang="bash"
                 code={
                     ["$ ./build.sh embed"]
                 }
@@ -65,6 +70,7 @@
         <li>
             You can choose to install Kal and libkal on your system directly. [Recommended]
             <Code
+                lang="bash"
                 code={
                     ["$ ./build.sh install"]
                 }

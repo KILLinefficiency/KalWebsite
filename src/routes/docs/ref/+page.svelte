@@ -111,4 +111,17 @@
     References can be passed during the function invocation. They do not need to be declared in any way during function definition.
     </Card>
 
+    Similarly, you can also loop over an array by reference:
+    <Code
+        caption={"loopByRef.kal"}
+        code={[
+            "var data = [1, 2, 3].",
+            "stdout \"Before: \" data \"\\n\".\n",
+            "loop &each in data {",
+            "    each = each * 10.",
+            "}\n",
+            "stdout \"After: \" data \"\\n\"."
+        ]}
+        output={"Before: [1, 2, 3]\nAfter: [10, 20, 30]"}
+    />
 </Content>
