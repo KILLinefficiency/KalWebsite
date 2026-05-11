@@ -14,7 +14,7 @@
             width: 100%;
         }
         h1, h3 {
-            font-size: 40px;
+            font-size: 12px;
         }
     }
     .header {

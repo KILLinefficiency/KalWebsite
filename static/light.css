@@ -1,16 +1,16 @@
 /*
-    Light Theme adapted from "Catppuccin Latte".
-    URL: https://catppuccin.com/palette
+    Light Theme adapted from "Gruvbox Light".
+    URL: https://github.com/morhetz/gruvbox
 */
 
 :root {
-    --fg:      #4C4F69;
-    --bg:      #DCE0E8;
-    --base:    #EFF1F5;
-    --surface: #CCD0DA;
-    --red:     #D20F39;
-    --yellow:  #DF8E1D;
-    --green:   #40A02B;
-    --blue:    #1E66FE;
-    --gray:    #9CA0B0;
+    --fg:      #282828;
+    --bg:      #FBF1C7;
+    --base:    #EBDBB2;
+    --surface: #F9F5D7;
+    --red:     #CC241D;
+    --yellow:  #D79921;
+    --green:   #98971A;
+    --blue:    #076678;
+    --gray:    #928374;
 }

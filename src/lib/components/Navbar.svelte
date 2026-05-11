@@ -1,8 +1,21 @@
 <script>
+    import { browser } from "$app/environment";
+
+    let storageName = "KalTheme";
     let theme = $state("dark");
+
+    $effect(() => {
+        if(browser) {
+            theme = localStorage.getItem(storageName) ?? "dark";
+            localStorage.setItem(storageName, theme);
+        }
+    });
 
     function switchTheme() {
         theme = (theme === "dark") ? "light" : "dark";
+        if(browser) {
+            localStorage.setItem(storageName, theme);
+        }
     }
 </script>
 

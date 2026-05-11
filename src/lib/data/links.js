@@ -14,6 +14,13 @@ export default [
         ]
     ],
     [
+        "Scopes & Shadowing",
+        "/docs/scope",
+        [
+            "fifth"
+        ]
+    ],
+    [
         "Packages & Preprocessor",
         "/docs/preproc",
         [
