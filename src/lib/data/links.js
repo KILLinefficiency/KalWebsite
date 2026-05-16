@@ -14,6 +14,13 @@ export default [
         ]
     ],
     [
+        "Control Flow",
+        "/docs/control",
+        [
+            "sixth"
+        ]
+    ],
+    [
         "Scopes & Shadowing",
         "/docs/scope",
         [

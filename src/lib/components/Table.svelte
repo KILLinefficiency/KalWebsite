@@ -1,11 +1,19 @@
 <script>
-    let { header = ["Hello", "World","ABC"], rows } = $props();
+    let { header, rows } = $props();
 </script>
 
 <style>
+    .table-outer {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
     table {
         border-collapse: collapse;
     }
+
     th, td {
         padding: 20px;
         text-align: center;
@@ -29,23 +37,32 @@
         color: var(--green);
         font-weight: bold;
     }
+
+    @media screen and (max-width: 1000px) {
+        .table-outer {
+            display: block;
+            overflow-x: auto;
+            max-width: 300px;
+        }
+    }
 </style>
 
-<table>
-    <tbody>
-        <tr>
-            {#each header as head}
-                <th>{head}</th>
-            {/each}
-        </tr>
-
-        {#each rows as row}
+<div class="table-outer">
+    <table>
+        <tbody>
             <tr>
-                {#each row as item}
-                    <td>{item}</td>
+                {#each header as head}
+                    <th>{head}</th>
                 {/each}
             </tr>
-        {/each}
-    </tbody>
-</table>
 
+            {#each rows as row}
+                <tr>
+                    {#each row as item}
+                        <td>{item}</td>
+                    {/each}
+                </tr>
+            {/each}
+        </tbody>
+    </table>
+</div>

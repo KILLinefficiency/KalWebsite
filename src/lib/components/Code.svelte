@@ -10,7 +10,7 @@
     let outputLabel = $state("Show");
     let outputDisplay = $state(false);
 
-    const keywords = [/var/g, /stdout/g, /fn/g, /loop/g, /\sin\s/g, /if/g, /static/g];
+    const keywords = [/var/g, /stdout/g, /fn/g, /loop/g, /\sin\s/g, /if/g, /else/g, /static/g];
     const preproc = /^@.+/g;
     const string = /\".*?\"/g;
     const comments = [/;[\w\d\s]+;/, /;;.*/];
@@ -44,7 +44,14 @@
                     line = line.replace(keyword, `<span style='color: var(--red)'>${(line.match(keyword) ?? [""])[0]}</span>`)
                 });
 
-                line = line.replace(fn, `<span style='color: var(--yellow)'>${line.match(fn)}</span>`);
+                const fnInvocations = line.match(fn);
+                if(fnInvocations != null) {
+                    console.log("[Line]", line);
+                    console.log("[LOG]", fnInvocations);
+                    for(let invocation of fnInvocations) {
+                        line = line.replace(invocation, `<span style='color: var(--yellow)'>${invocation}</span>`);
+                    }
+                }
 
                 line = line.replace(preproc, `<span style='color: var(--blue)'>${line.match(preproc)}</span>`);
 

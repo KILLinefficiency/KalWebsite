@@ -88,8 +88,7 @@
             width: 90%;
             height: 200px;
             margin: 0px auto;
-            padding: 30px 0px;
-            justify-content: center;
+            padding: 10px 0;
         }
         .panel input {
             width: 60%;
@@ -107,6 +106,8 @@
 
         .topic {
             font-size: 15px;
+            margin-left: 15px;
+            margin-right: 15px;
         }
     }
 
