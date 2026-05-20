@@ -10,7 +10,7 @@
     let outputLabel = $state("Show");
     let outputDisplay = $state(false);
 
-    const keywords = [/var/g, /stdout/g, /fn/g, /loop/g, /\sin\s/g, /if/g, /else/g, /static/g, /break/g];
+    const keywords = [/var/g, /stdout/g, /fn/g, /loop/g, /\sin\s/g, /if/g, /else/g, /static/g, /break/g, /len/g, /continue/g];
     const preproc = /^@.+/g;
     const string = /\".*?\"/g;
     const comments = [/;[\w\d\s]+;/, /;;.*/];

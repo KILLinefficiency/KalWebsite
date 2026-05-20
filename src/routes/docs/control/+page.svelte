@@ -359,4 +359,86 @@
         output={"Count: 1\nCount: 2\nCount: 3\nCount: 4\nCount: 5"}
     />
 
+    Notice how some of the examples use <Fence>break</Fence>.
+    It's also not mandatory that you run a loop the number of times it's designed to run. You can break out of a loop before it finishes all its iterations.
+
+    <br /><br />
+    Consider this program which breaks out of the loop once it hits an even number in the list it's iterating on.
+
+    <Code
+        caption="break.kal"
+        code={[
+            "var data = [1, 3, 5, 8, 10],",
+            "    itr = 0.\n",
+            "loop itr < $(len data) {",
+            "    if data[itr] % 2 == 0 {",
+            "        break.",
+            "    }",
+            "    stdout data[itr] \"\\n\".",
+            "    itr = itr + 1.",
+            "}"
+        ]}
+        output={"1\n3\n5"}
+    />
+
+    Breaking out of a loop is a hard stop. You may want to skip loop iterations sometimes. <Fence>continue</Fence> does that for you.
+
+    <Code
+        caption="continue.kal"
+        code={[
+            "loop count = 1 -- count <= 10 -- count = count + 1 {",
+            "    if count == 4 || count == 9 {",
+            "        continue.",
+            "    }\n",
+            "    stdout count \" \".",
+            "}\n",
+            "stdout \"\\n\"."
+        ]}
+        output={"1 2 3 5 6 7 8 10"}
+    />
+
+    Notice that only 4th and 9th iterations are skipped while the loop body executes as expected for other iterations.
+
+    <br /><br />
+    One of the most useful constructs of programming is a nested loop.
+    A nested loop is a loop body that executes inside another loop body. Loops can be nested to any number of levels.
+
+    <Code
+        caption="nestedPairs.kal"
+        code={[
+            "loop i = 1 -- i <= 5 -- i = i + 1 {",
+            "    loop j = 1 -- j <= 5 -- j = j + 1 {",
+            "        if i == j {",
+            "            continue.",
+            "        }",
+            "        stdout \"(\" i \", \" j \")\\n\".",
+            "    }",
+            "}"
+        ]}
+        output={"(1, 2)\n(1, 3)\n(1, 4)\n(1, 5)\n(2, 1)\n(2, 3)\n(2, 4)\n(2, 5)\n(3, 1)\n(3, 2)\n(3, 4)\n(3, 5)\n(4, 1)\n(4, 2)\n(4, 3)\n(4, 5)\n(5, 1)\n(5, 2)\n(5, 3)\n(5, 4)"}
+    />
+
+    Perhaps a very well known sorting algorithm that uses nested loops may help...
+    <Code
+        caption="bubbleSort.kal"
+        code={[
+            "var data = [3, 1, 5, 4, 2].\n",
+            "stdout \"Before: \" data \"\\n\".\n",
+            "var i = 0.",
+            "loop i < $(len data) {",
+            "    var j = i.",
+            "    loop j < $(len data) {",
+            "        if data[i] > data[j] {",
+            "            ;; swap values",
+            "            var [data[i], data[j]] = [data[j], data[i]].",
+            "        }",
+            "        j = j + 1.",
+            "    }",
+            "    i = i + 1.",
+            "}\n",
+            "stdout \"After:  \" data \"\\n\"."
+        ]}
+        output={"Before: [3, 1, 5, 4, 2]\nAfter:  [1, 2, 3, 4, 5]"}
+    />
+
 </Content>
