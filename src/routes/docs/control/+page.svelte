@@ -230,4 +230,133 @@
         ]}
         output={"Invoked Y\nInvoked X\nDone"}
     />
+
+    Conditionally executing your code is not everything. You also need to execute code multiple times. That's where <Fence>loop</Fence> comes in.
+    A loop executes a block of code repeatedly based on the boolean condition provided to it. The conditions can be provided to it in many ways.
+
+    Take for example:
+
+    <Code
+        caption="loop.kal"
+        code={[
+            "var count = 0.\n",
+            "loop count < 5 {",
+            "    stdout \"Hello\\n\".",
+            "    count = count + 1.",
+            "}"
+        ]}
+        output={"Hello\nHello\nHello\nHello\nHello"}
+    />
+
+    Analogous to the while loop, if loop takes in only one segment (boolean condition), that means the loop keeps on repeating till the condition evaluates to false.
+
+    <br /><br />
+    You can also use other control flow constructs in <Fence>loop</Fence>. Take <Fence>if</Fence> for example:
+
+    <Code
+        caption="loop.kal"
+        code={[
+            "var count = 1.\n",
+            "loop count <= 5 {",
+            "    if count % 2 == 0 {",
+            "        stdout \"Hello x\" count \"\\n\".",
+            "    }",
+            "    count = count + 1.",
+            "}"
+        ]}
+        output={"Hello x2\nHello x4"}
+    
+    />
+
+    A much compact loop can be written with the declaration, condition and increment in a single line, much analogous to a <Fence>for</Fence> loop.
+
+    <Code
+        caption="loop.kal"
+        code={[
+            "loop count = 1 -- count < 5 -- count = count + 1 {",
+            "    stdout \"Hello\\n\".",
+            "}"
+        ]}
+        output={"Hello\nHello\nHello\nHello\nHello"}
+    />
+
+    Notice that the segments are separated by <Fence>--</Fence>.
+
+    <br /><br />
+    You can write each segment on a new line for better readability.
+
+    <Code
+        caption="loop.kal"
+        code={[
+            "loop count = 1 --",
+            "     count < 5 --",
+            "     count = count + 1 {",
+            "     stdout \"Hello\\n\".",
+            "}"
+        ]}
+        output={"Hello\nHello\nHello\nHello\nHello"}
+    />
+
+    Not all segments are mandatory in <Fence>loop</Fence>.
+    You can skip them if you have provisioned them somewhere around or inside the loop block.
+
+    <br /><br />
+    Take these for examples:
+
+    <Code
+        caption="loop101.kal",
+        code={[
+            ";; skipping condition segment\n",
+            "loop count = 1 -- -- count = count + 1 {",
+            "    if count == 6 {",
+            "        break.",
+            "    }\n",
+            "    stdout \"Count: \" count \"\\n\".",
+            "}"
+        ]}
+        output={"Count: 1\nCount: 2\nCount: 3\nCount: 4\nCount: 5"}
+    />
+
+    <Code
+        caption="loop110.kal"
+        code={[
+            ";; skipping increment segment\n",
+            "loop count = 1 -- count <= 5 {",
+            "    stdout \"Count: \" count \"\\n\".",
+            "    count = count + 1.",
+            "}"
+        ]}
+        output={"Count: 1\nCount: 2\nCount: 3\nCount: 4\nCount: 5"}
+    />
+
+    <Code
+        caption="loop100.kal",
+        code={[
+            ";; skipping condition and increment segment\n",
+            "loop count = 1 -- -- {",
+            "    if count == 6 {",
+            "        break.",
+            "    }\n",
+            "    stdout \"Count: \" count \"\\n\".",
+            "    count = count + 1.",
+            "}"
+        ]}
+        output={"Count: 1\nCount: 2\nCount: 3\nCount: 4\nCount: 5"}
+    />
+
+    <Code
+        caption="loop001.kal"
+        code={[
+            ";; skipping assignment and condition segment\n",
+            "var count = 1.\n",
+            "loop -- -- count = count + 1 {",
+            "    if count == 6 {",
+            "        break.",
+            "    }\n",
+            "    stdout \"Count: \" count \"\\n\".",
+            "}"
+        ]}
+        output={"Count: 1\nCount: 2\nCount: 3\nCount: 4\nCount: 5"}
+    />
+
 </Content>

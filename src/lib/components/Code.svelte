@@ -10,7 +10,7 @@
     let outputLabel = $state("Show");
     let outputDisplay = $state(false);
 
-    const keywords = [/var/g, /stdout/g, /fn/g, /loop/g, /\sin\s/g, /if/g, /else/g, /static/g];
+    const keywords = [/var/g, /stdout/g, /fn/g, /loop/g, /\sin\s/g, /if/g, /else/g, /static/g, /break/g];
     const preproc = /^@.+/g;
     const string = /\".*?\"/g;
     const comments = [/;[\w\d\s]+;/, /;;.*/];
@@ -46,9 +46,7 @@
 
                 const fnInvocations = line.match(fn);
                 if(fnInvocations != null) {
-                    console.log("[Line]", line);
-                    console.log("[LOG]", fnInvocations);
-                    for(let invocation of fnInvocations) {
+                    for(const invocation of fnInvocations) {
                         line = line.replace(invocation, `<span style='color: var(--yellow)'>${invocation}</span>`);
                     }
                 }
@@ -83,7 +81,8 @@
         }
 
         let text = highlightedCode.join("\n");
-        console.log(text);
+
+        $inspect(text);
         return text;
     }
 </script>
