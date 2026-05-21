@@ -418,6 +418,11 @@
         output={"(1, 2)\n(1, 3)\n(1, 4)\n(1, 5)\n(2, 1)\n(2, 3)\n(2, 4)\n(2, 5)\n(3, 1)\n(3, 2)\n(3, 4)\n(3, 5)\n(4, 1)\n(4, 2)\n(4, 3)\n(4, 5)\n(5, 1)\n(5, 2)\n(5, 3)\n(5, 4)"}
     />
 
+    <br /><br />
+    This example demonstrates a nested loop. For every iteration of the outer loop, the inner loop runs multiple times. In this case continue is used to skip an iteration where the values of <Fence>i</Fence> and <Fence>j</Fence> are the same.
+    The program results in pairs of numbers 1 to 5 without a repeating number in a pair.
+
+    <br /><br/>
     Perhaps a very well known sorting algorithm that uses nested loops may help...
     <Code
         caption="bubbleSort.kal"
@@ -439,6 +444,44 @@
             "stdout \"After:  \" data \"\\n\"."
         ]}
         output={"Before: [3, 1, 5, 4, 2]\nAfter:  [1, 2, 3, 4, 5]"}
+    />
+
+    You can cleanly loop over a list via a ranged based loop.
+    A range based loop takes care of that starting point, ending point and the increment by itself.
+
+    <Code
+        caption="rangeLoop.kal"
+        code={[
+            "var data = [1, 2, 3].\n",
+            "loop each in data {",
+            "    stdout each \"\\n\".",
+            "}"
+        ]}
+        output={"1\n2\n3"}
+    />
+
+    In this case the variable <Fence>each</Fence> holds the value of the each element in the data list during its respective iteration.
+
+    <br /><br />
+    <Card type="info">
+        Modifying a list element inside a range based loop body, does not modify the original value, it only modifies the temporary value.
+    </Card>
+
+    <br />
+    Range based loops can also be nested.
+
+    <Code
+        caption="nestedRange.kal"
+        code={[
+            "var data = [[1, 2, 3], [4, 5, 6], [7, 8, 9]].\n",
+            "loop x in data {",
+            "    loop y in x {",
+            "        stdout y \" \".",
+            "    }\n",
+            "    stdout \"\\n\"",
+            "}"
+        ]}
+        output={"1 2 3\n4 5 6\n7 8 9"}
     />
 
 </Content>
