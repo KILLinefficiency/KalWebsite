@@ -40,5 +40,12 @@ export default [
         [
             "fourth"
         ]
+    ],
+    [
+        "Embeddable Kal",
+        "/docs/embeddable",
+        [
+            "seventh"
+        ]
     ]
 ];
