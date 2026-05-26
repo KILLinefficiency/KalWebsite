@@ -6,6 +6,7 @@ const syntax = {
         comments: [/;[\w\d\s]+;/, /;;.*/],
         fn: /(?<!pkg):[a-zA-Z0-9_]+/g
     },
+
     bash: {
         commands: [/(?<=\$\s)sudo/g, /(?<=\$\s)git/g, /(?<=\$\s)mkdir/g, /(?<=\$\s)export/g, /(?<=\$\s)echo/g, /(?<=\$\s)cd/g, /(?<=\$\s)kal/g, /(?<=\$\s)g\+\+/g],
         flag: /-[-a-zA-z0-9=]+/g,
@@ -13,12 +14,14 @@ const syntax = {
         sigil: /^\$/g,
         strings: [/\".*?\"/g, /\'.*?\'/g]
     },
+
     cpp: {
         include: /^#.+/g,
         obj: /(Kal|Result|Table)(\(\))?/g,
-        strings: [/R\"\(.*?\)\"/g, /\".*?\"/g],
+        strings: [/R\"\((.*?|\n)*\)\"/g, /\".*?\"/g],
         keywords: [/char/g, /for/g, /const/g, /double/g, /return/g, /using/g, /std::cout/g, /std::string/g, /std::vector/g, /std::unordered_map/g],
-        methods: [/to_number/g, /to_string/g, /to_list/g, /to_dict/g, /to_null/g, /exec/g, /begin/g, /end/g]
+        methods: [/to_number/g, /to_string/g, /to_list/g, /to_dict/g, /to_null/g, /exec/g, /begin/g, /end/g],
+        int: /int/g
     }
 };
 
@@ -27,6 +30,7 @@ export function highlight(lines, lang) {
 
     for(let line of lines) {
         if(lang === "kal") {
+            line = line.replace("\n", "<br />");
             syntax.kal.keywords.forEach((keyword) => {
                 line = line.replace(keyword, `<span style='color: var(--red)'>${(line.match(keyword) ?? [""])[0]}</span>`)
             });
@@ -75,7 +79,6 @@ export function highlight(lines, lang) {
 
             syntax.cpp.strings.forEach((string) => {
                 const strings = line.match(string);
-                console.log("Strings: ", strings);
                 if(strings != null) {
                     strings.forEach((string) => {
                         line = line.replace(string, `<span style='color: var(--green)'>${string}</span>`);
@@ -97,6 +100,13 @@ export function highlight(lines, lang) {
             syntax.cpp.methods.forEach((method) => {
                 line = line.replace(method, `<span style='color: var(--yellow)'>${line.match(method)}</span>`);
             });
+
+            const ints = line.match(syntax.cpp.int);
+            if(ints != null) {
+                ints.forEach((int) => {
+                    line = line.replaceAll(int, `<span style='color: var(--red)'>${int}</span>`)
+                });
+            }
         }
 
         highlightedCode.push(line);
