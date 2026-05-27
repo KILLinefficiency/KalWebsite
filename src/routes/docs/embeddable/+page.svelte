@@ -162,7 +162,7 @@
     Depending on the type of value you are returning, <Fence>libkal</Fence> provides multiple methods to extract them.
 
     <Table
-        header={["Kal Type", "Method", "C++ Type"]}
+        header={["Kal Type", "libkal Method", "C++ Type"]}
         rows={[
             ["Numerical", "to_number()", "double"],
             ["String", "to_string()", "std::string"],
@@ -294,5 +294,10 @@
         ]}
         output={"Dict: Result(#(name -> \"kal\", pi -> 3.14))\n\nname : Result(\"kal\")\npi : Result(3.14)\n\nName: kal\nPi: 3.14"}
     />
+
+    <Card>
+        C++ programs link with <Fence>libkal.a</Fence> statically, therefore compiled executables can be used and distributed without requiring <Fence>libkal.a</Fence>.
+        It is only needed during compile time.
+    </Card>
 
 </Content>

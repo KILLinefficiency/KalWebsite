@@ -8,7 +8,7 @@ const syntax = {
     },
 
     bash: {
-        commands: [/(?<=\$\s)sudo/g, /(?<=\$\s)git/g, /(?<=\$\s)mkdir/g, /(?<=\$\s)export/g, /(?<=\$\s)echo/g, /(?<=\$\s)cd/g, /(?<=\$\s)kal/g, /(?<=\$\s)g\+\+/g],
+        commands: [/(?<=\$\s)sudo/g, /(?<=\$\s)git/g, /(?<=\$\s)mkdir/g, /(?<=\$\s)export/g, /(?<=\$\s)echo/g, /(?<=\$\s)cd/g, /(?<=\$\s)kal/g, /(?<=\$\s)g\+\+/g, /(?<=\$\s)pip3/g],
         flag: /-[-a-zA-z0-9=]+/g,
         exec: /\.\/[\w\.]+/g,
         sigil: /^\$/g,
@@ -22,6 +22,13 @@ const syntax = {
         keywords: [/char/g, /for/g, /const/g, /double/g, /return/g, /using/g, /std::cout/g, /std::string/g, /std::vector/g, /std::unordered_map/g],
         methods: [/to_number/g, /to_string/g, /to_list/g, /to_dict/g, /to_null/g, /exec/g, /begin/g, /end/g],
         int: /int/g
+    },
+
+    py: {
+        keywords: [/from/g, /import/g, /for/g, /\sin\s/g],
+        strings: [/\"\"\"(.*?|\n)*\"\"\"/g, /\'.*?\'/g],
+        methods: [/to_number/g, /to_string/g, /to_list/g, /to_dict/g, /to_null/g, /exec/g],
+        funcClass: [/print/g, /type/g, /Kal\(.*\)/g],
     }
 };
 
@@ -71,7 +78,7 @@ export function highlight(lines, lang) {
             line = line.replace(syntax.bash.sigil, `<span style='color: var(--red); font-weight: bold;'>${line.match(syntax.bash.sigil)}</span>`);
         }
 
-        else if(lang == "cpp") {
+        else if(lang === "cpp") {
             line = line.replace("<", "&lt;");
             line = line.replace(">", "&gt;");
 
@@ -107,6 +114,31 @@ export function highlight(lines, lang) {
                     line = line.replaceAll(int, `<span style='color: var(--red)'>${int}</span>`)
                 });
             }
+        }
+
+        if(lang === "py") {
+            syntax.py.strings.forEach((eachStr) => {
+                const strings = line.match(eachStr);
+                if(strings != null) {
+                    strings.forEach((string) => {
+                        console.log(string);
+                        line = line.replace(string, `<span style="color: var(--green)">${string}</span>`);
+                    });
+                }
+            });
+
+            syntax.py.keywords.forEach((keyword) => {
+                line = line.replace(keyword, `<span style="color: var(--red)">${line.match(keyword)}</span>`)
+            });
+
+            syntax.py.methods.forEach((method) => {
+                line = line.replace(method, `<span style="color: var(--yellow)">${line.match(method)}</span>`);
+            });
+
+            syntax.py.funcClass.forEach((fnCl) => {
+                line = line.replace(fnCl, `<span style="color: var(--blue)">${line.match(fnCl)}</span>`);
+            })
+
         }
 
         highlightedCode.push(line);

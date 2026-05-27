@@ -47,5 +47,19 @@ export default [
         [
             "seventh"
         ]
+    ],
+    [
+        "PyKal",
+        "/docs/pykal",
+        [
+            "eighth"
+        ]
+    ],
+    [
+        "JSKal",
+        "/docs/jskal",
+        [
+            "ninth"
+        ]
     ]
 ];
