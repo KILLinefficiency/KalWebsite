@@ -8,11 +8,13 @@ const syntax = {
     },
 
     bash: {
-        commands: [/(?<=\$\s)sudo/g, /(?<=\$\s)git/g, /(?<=\$\s)mkdir/g, /(?<=\$\s)export/g, /(?<=\$\s)echo/g, /(?<=\$\s)cd/g, /(?<=\$\s)kal/g, /(?<=\$\s)g\+\+/g, /(?<=\$\s)pip3/g],
+        command: /(?<=\$\s)[\w]+/g,
+        args: /(?<=\$\s[\w]+\s)[\w].+\s/g,
         flag: /-[-a-zA-z0-9=]+/g,
         exec: /\.\/[\w\.]+/g,
         sigil: /^\$/g,
-        strings: [/\".*?\"/g, /\'.*?\'/g]
+        comment: /#.*/g,
+        strings: [/\".*?\"/g, /\'.*?\'/g],
     },
 
     cpp: {
@@ -71,11 +73,11 @@ export function highlight(lines, lang) {
                 });
             }
 
-            line = line.replace(syntax.kal.exec, `<span style='color: var(--yellow)'>${line.match(syntax.kal.exec)}</span>`);
-            syntax.bash.commands.forEach((command) => {
-                line = line.replace(command, `<span style='color: var(--red)'>${line.match(command)}</span>`);
-            });
+            line = line.replace(syntax.bash.args, `<span style='color: var(--yellow)'>${line.match(syntax.bash.args)}</span>`)
+            line = line.replace(syntax.bash.exec, `<span style='color: var(--yellow)'>${line.match(syntax.bash.exec)}</span>`);
+            line = line.replace(syntax.bash.command, `<span style='color: var(--red)'>${line.match(syntax.bash.command)}</span>`)
             line = line.replace(syntax.bash.sigil, `<span style='color: var(--red); font-weight: bold;'>${line.match(syntax.bash.sigil)}</span>`);
+            line = line.replace(syntax.bash.comment, `<span style='color: var(--gray)'>${line.match(syntax.bash.comment)}</span>`);
         }
 
         else if(lang === "cpp") {
@@ -121,7 +123,6 @@ export function highlight(lines, lang) {
                 const strings = line.match(eachStr);
                 if(strings != null) {
                     strings.forEach((string) => {
-                        console.log(string);
                         line = line.replace(string, `<span style="color: var(--green)">${string}</span>`);
                     });
                 }

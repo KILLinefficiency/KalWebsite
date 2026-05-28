@@ -15,7 +15,7 @@
     During installation, a dynamic library <Fence>libkal.so</Fence> is also compiled and installed.
 
     <br /><br />
-    PyKal binds your Python program with <Fence>libkal.so</Fence> to allow execution of Kal code right inside your Python application.
+    PyKal binds your Python program with <Fence>libkal.so</Fence> to allow execution of Kal code right inside your application.
 
     <br /><br />
     Install PyKal using <Fence>pip3</Fence>:
