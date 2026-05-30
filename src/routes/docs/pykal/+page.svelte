@@ -52,7 +52,7 @@
 
     <Card>
         PyKal is not a reimplementation of Kal in Python.
-        It's rather an abstraction that uses Foreign Function Interface (FFI) to interact directly with <Fence>libkal.so</Fence> to execute Kal code.
+        It's rather an abstraction that utilizes Foreign Function Interface (FFI) to interact directly with <Fence>libkal.so</Fence> to execute Kal code.
     </Card>
 
     <br />

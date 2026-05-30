@@ -12,6 +12,12 @@
         color: var(--blue);
         text-decoration: none;
     }
+
+    @media screen and (max-width: 1000px) {
+        a {
+            font-size: 15px;
+        }
+    }
 </style>
 
 <Content title="JSKal" desc="It can do that... again!?" next="/docs" previous="/docs">
@@ -38,7 +44,6 @@
         code={[
             "$ deno init testJSKal",
             "$ cd tesJSKal",
-            "$ rm *ts* # skip if you wish to proceed with TS",
             "$ deno install npm:jskal"
         ]}
     />
@@ -53,11 +58,88 @@
         code={[
             "$ bun init testJSKalAgain",
             "$ cd testJSKalAgain",
-            "$ rm *ts* # skip if you wish to proceed with TS",
             "$ bun install jskal"
         ]}
     />
 
     Check <Fence>package.json</Fence> to verify installation.
 
+    <br /><br />
+    Remove existing Typescript files if you wish to proceed with JavaScript.
+
+    <Code
+        lang="bash"
+        code={["$ rm *ts*"]}
+    />
+
+    Let's write a simple program with each.
+
+    <br /><br />
+    With Deno…
+
+    <Code
+        lang="js"
+        caption="index.js"
+        code={[
+            "import Kal from 'npm:jskal';\n",
+            "const kal = new Kal();",
+            "kal.exec('stdout \"Hello JSKal\\n\".');\n",
+            "kal.close();"
+        ]}
+        output={"Hello JSKal"}
+    />
+
+    Run with:
+    <Code
+        lang="bash"
+        code={["$ deno run --allow-ffi index.js"]}
+    />
+
+    With Bun…
+
+    <Code
+        lang="js"
+        caption="index.js"
+        code={[
+            "import Kal from 'npm:jskal';\n",
+            "const kal = new Kal();",
+            "kal.exec('stdout \"Hello JSKal\\n\".');\n",
+            "kal.close();"
+        ]}
+        output={"Hello JSKal"}
+    />
+
+    Run with:
+    <Code
+        lang="bash"
+        code={["$ bun run index.js"]}
+    />
+
+    Notice how JSKal code for both Deno and Bun is exactly the same except for the <Fence>npm</Fence> label before the package name during import in Deno.
+
+    <br /><br />
+    JSKal is an ES6 package and maintains complete cross compatibility for both of these runtimes. This chapter follows JSKal examples with Deno, but feel free to use Bun if that's your preference.
+
+    <br /><br />
+    Deno prioritizes security, therefore you are required to pass the <Fence>--allow-ffi</Fence> flag before execution.
+    It provides Deno explicit permission to communicate with <Fence>libkal.so</Fence>.
+
+    <Card>
+        JSKal is not a reimplementation of Kal in JavaScript. It is rather an abstraction that utilizes Foreign Function Interface (FFI) to interact directly with <Fence>libkal.so</Fence> to execute Kal code.
+    </Card>
+
+    Every Kal instance reads the <Fence>libkal.so</Fence> file. As per default installation, it reads the file at: <Fence>/usr/local/lib/libkal.so</Fence>.
+    If you have installed <Fence>libkal.so</Fence> elsewhere or are using a custom build, pass the correct absolute path to the constructor of the Kal class to override the default path.
+
+    <Code
+        lang="js"
+        caption="customPath.js"
+        code={[
+            "import Kal from 'npm:jskal';\n",
+            "const kal = new Kal('/home/me/Kal/bin/libkal.so');",
+            "kal.exec('stdout \"Hello JSKal\\n\".');\n",
+            "kal.close();"
+        ]}
+        output={"Hello JSKal"}
+    />
 </Content>
