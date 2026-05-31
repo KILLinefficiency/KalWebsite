@@ -23,6 +23,7 @@
     :global(::selection) {
         color: var(--blue);
         background-color: var(--base);
+        text-decoration: underline;
     }
 </style>
 

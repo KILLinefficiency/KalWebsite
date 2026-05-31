@@ -7,7 +7,7 @@
 </script>
 
 <Content title="PyKal" desc="Wait... it can do that!?" next="/docs" previous="/docs">
-    What if we could embed Kal not only in C++, but Python as well?
+    What if we could embed Kal not only in C++, but in Python as well?
 
     <br /><br />
     PyKal is an official Python library that provides bindings for a Python program to communicate with libkal.
@@ -94,7 +94,7 @@
     <br /><br />
     PyKal also provides a <Fence>Result</Fence> object that stores the return value of an executed Kal code snippet.
 
-    The <Fence>{"<-"}</Fence> operator can be used in the Kal code to return value to the Python host program.
+    The <Fence>{"<-"}</Fence> operator can be used in the Kal code to return a value to the Python host program.
 
     <Code
         lang="py"
@@ -110,7 +110,7 @@
         output={"Result(500)\n500.0\n&lt;class 'pykal.result.Result'&gt;"}
     />
 
-    A <Fence>Result</Fence> object can be previewed by printing it out. The <Fence>to_number</Fence> method on object in this case, extracts the value by converting it to it's equivalent Python type.
+    A <Fence>Result</Fence> object can be previewed by printing it out. The <Fence>to_number</Fence> method on the object in this case extracts the value by converting it to its equivalent Python type.
 
     <br /><br />
     Similarly, depending on the value you are returning, PyKal provides multiple methods to extract values from the <Fence>Result</Fence> object.
@@ -128,13 +128,13 @@
     />
 
     <br />
-    Complex values such as lists and dictionaries can also be passed to the <Fence>exec</Fence> method. PyKal will implicitly convert Python type to Kal type.
+    Complex values such as lists and dictionaries can also be passed to the <Fence>exec</Fence> method. PyKal will implicitly convert Python types to Kal types.
 
     <br /><br />
     A complex value can be converted using <Fence>to_list</Fence> or <Fence>to_dict</Fence> method. However, this only converts the data structure itself, not the internal values. Those can be converted implicitly using the appropriate methods.
 
     <br /><br/>
-    Consider this Kal code example which accepts a list from Python and returns a list of first, middle and last element back to Python.
+    Consider this Kal code example which accepts a list from Python and returns a list of first, middle and last elements back to Python.
     <Code
         lang="py"
         caption="pykalList.py"

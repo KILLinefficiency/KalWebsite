@@ -23,7 +23,8 @@ const syntax = {
         strings: [/R\"\((.*?|\n)*\)\"/g, /\".*?\"/g],
         keywords: [/char/g, /for/g, /const/g, /double/g, /return/g, /using/g, /std::cout/g, /std::string/g, /std::vector/g, /std::unordered_map/g],
         methods: [/to_[\w]+/g, /exec/g, /begin/g, /end/g],
-        int: /int/g
+        int: /int/g,
+        var: /\$[\w]+/g
     },
 
     py: {
@@ -31,13 +32,16 @@ const syntax = {
         strings: [/\"\"\"(.*?|\n)*\"\"\"/g, /\'.*?\'/g],
         methods: [/to_[\w]+/g, /exec/g],
         funcClass: [/print/g, /type/g, /Kal\(.*\)/g],
+        var: /\$[\w]+/g
     },
 
     js: {
         keywords: [/import/g, /from/g, /const/g, /new/g],
         strings: [/`(.*?|\n)*`/g, /\'.*?\'/g],
-        methods: [/exec/g, /close/g, /display/g],
-        funcClass: [/Kal/g]
+        methods: [/log/g, /exec/g, /close/g, /display/g, /toNumber/g, /toList/g, /forEach/g],
+        funcClass: [/Kal\(.*\)/g, /console/g],
+        key: /\s[\w]+(?=:)/g,
+        var: /\$[\w]+/g
     }
 };
 
@@ -123,6 +127,13 @@ export function highlight(lines, lang) {
                     line = line.replaceAll(int, `<span style='color: var(--red)'>${int}</span>`)
                 });
             }
+
+            const vars = line.match(syntax.cpp.var);
+            if(vars != null) {
+                vars.forEach((eachVar) => {
+                    line = line.replace(eachVar, `<span style="font-style: italic">${eachVar}</span>`);
+                });
+            }
         }
 
         if(lang === "py") {
@@ -146,6 +157,13 @@ export function highlight(lines, lang) {
             syntax.py.funcClass.forEach((fnCl) => {
                 line = line.replace(fnCl, `<span style="color: var(--blue)">${line.match(fnCl)}</span>`);
             })
+
+            const vars = line.match(syntax.py.var);
+            if(vars != null) {
+                vars.forEach((eachVar) => {
+                    line = line.replace(eachVar, `<span style="font-style: italic">${eachVar}</span>`);
+                });
+            }
 
         }
 
@@ -172,9 +190,23 @@ export function highlight(lines, lang) {
                 line = line.replace(method, `<span style="color: var(--yellow)">${line.match(method)}</span>`);
             });
 
-            syntax.py.funcClass.forEach((fnCl) => {
-                line = line.replace(fnCl, `<span style="color: var(--blue)">${line.match(fnCl)}</span>`);
+            syntax.js.funcClass.forEach((eachFnCl) => {
+                const fnCls = line.match(eachFnCl);
+                if(fnCls != null) {
+                    fnCls.forEach((fnCl) => {
+                        line = line.replaceAll(fnCl, `<span style="color: var(--blue)">${fnCl}</span>`);
+                    });
+                }
             });
+
+            line = line.replace(syntax.js.key, `<span style="color: var(--green)">${line.match(syntax.js.key)}</span>`);
+
+            const vars = line.match(syntax.js.var);
+            if(vars != null) {
+                vars.forEach((eachVar) => {
+                    line = line.replace(eachVar, `<span style="font-style: italic">${eachVar}</span>`);
+                });
+            }
         }
 
         highlightedCode.push(line);
