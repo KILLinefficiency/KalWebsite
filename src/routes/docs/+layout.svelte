@@ -9,13 +9,17 @@
         if(query === "") return Links;
 
         const queryTokens = query.split(" ");
-        console.log(queryTokens);
-        return Links.filter(data => {
+        return Links.filter((data) => {
             const title = data[0].toLowerCase();
+            // const x = queryTokens.some((tag) => data[2].includes(tag));
+            // $inspect(queryTokens);
+            // $inspect(data[2].join(" "));
+            // $inspect(x);
             return (
                 title.includes(query) ||
-                data[2].some(tag => queryTokens.includes(tag)) ||
-                title.split(" ").some(tag => queryTokens.includes(tag))
+                query.includes(title) ||
+                title.split(" ").some((tag) => queryTokens.includes(tag)) ||
+                queryTokens.some((tag) => data[2].includes(tag))
             );
         });
     }

@@ -44,7 +44,7 @@
         lang="bash"
         code={[
             "$ deno init testJSKal",
-            "$ cd tesJSKal",
+            "$ cd testJSKal",
             "$ deno install npm:jskal"
         ]}
     />
@@ -257,7 +257,7 @@
             "const result = kal.exec(",
             "    `\n        var data = $data.\n        <- #(sum -> data[\"x\"] + data[\"y\"]).\n    `,",
             "    {",
-            "        data: { 'x': 75, 'y': 25 }",
+            "        data: { x: 75, y: 25 }",
             "    }",
             ");\n",
             "console.log(result.display());\n",

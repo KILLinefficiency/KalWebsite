@@ -18,7 +18,12 @@
     }
 
     async function copy() {
-        await navigator.clipboard.writeText(code.join("\n"));
+        let snippet = (lang != "bash")
+            ? code.join("\n")
+            : code.map((line) => line.substr(2)).join("\n");
+
+        await navigator.clipboard.writeText(snippet);
+        
         copyLabel = "Copied";
         setTimeout(() => {
             copyLabel = "Copy";

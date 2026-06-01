@@ -14,7 +14,8 @@ const syntax = {
         exec: /\.\/[\w\.]+/g,
         sigil: /^\$/g,
         comment: /#.*/g,
-        strings: [/\".*?\"/g, /\'.*?\'/g],
+        strings: [/\'e.*?\'/g, /\".*?\"/g],
+        envVar: /(?<=[\s\"])\$[\A-Z_]+/g
     },
 
     cpp: {
@@ -84,11 +85,26 @@ export function highlight(lines, lang) {
                 });
             }
 
+            syntax.bash.strings.forEach((eachStr) => {
+                const strings = line.match(eachStr);
+                if(strings != null) {
+                    console.log("Strings", strings);
+                    strings.forEach((string) => {
+                        line = line.replace(string, `<span style='color: var(--green)'>${string}</span>`);
+                    });
+                }
+            });
+
             line = line.replace(syntax.bash.args, `<span style='color: var(--yellow)'>${line.match(syntax.bash.args)}</span>`)
             line = line.replace(syntax.bash.exec, `<span style='color: var(--yellow)'>${line.match(syntax.bash.exec)}</span>`);
             line = line.replace(syntax.bash.command, `<span style='color: var(--red)'>${line.match(syntax.bash.command)}</span>`)
             line = line.replace(syntax.bash.sigil, `<span style='color: var(--red); font-weight: bold;'>${line.match(syntax.bash.sigil)}</span>`);
             line = line.replace(syntax.bash.comment, `<span style='color: var(--gray)'>${line.match(syntax.bash.comment)}</span>`);
+            const v = line.match(syntax.bash.envVar);
+            if(v) {
+                console.log("Vars", v);
+            }
+            line = line.replace(syntax.bash.envVar, `<span style='color: var(--yellow)'>${line.match(syntax.bash.envVar)}</span>`);
         }
 
         else if(lang === "cpp") {
@@ -199,7 +215,12 @@ export function highlight(lines, lang) {
                 }
             });
 
-            line = line.replace(syntax.js.key, `<span style="color: var(--green)">${line.match(syntax.js.key)}</span>`);
+            const keys = line.match(syntax.js.key);
+            if(keys != null) {
+                keys.forEach((key) => {
+                    line = line.replace(key, `<span style="color: var(--green)">${key}</span>`);
+                });
+            }
 
             const vars = line.match(syntax.js.var);
             if(vars != null) {
