@@ -156,7 +156,7 @@
     The variable result stores the value 500. It can be previewed by directly printing it out.
 
     <br /><br />
-    Since we are returning a value of a numerical type, the actual value can be realized by calling the <Fence>to_number</Fence> method on the <Fence>result</Fence> object.
+    Since you are returning a value of a numerical type, the actual value can be realized by calling the <Fence>to_number</Fence> method on the <Fence>result</Fence> object.
 
     <br /><br />
     Depending on the type of value you are returning, <Fence>libkal</Fence> provides multiple methods to extract them.

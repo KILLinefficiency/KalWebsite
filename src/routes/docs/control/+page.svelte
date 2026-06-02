@@ -152,7 +152,7 @@
     />
 
     <br /><br />
-    Here we can observe that in 50% of the cases:
+    Here you can observe that in 50% of the cases:
     <ul>
         <li>For <Fence>&&</Fence>, the final result is false if the first operand is false.</li>
         <li>For <Fence>||</Fence>, the final result is true if the first operand is true.</li>

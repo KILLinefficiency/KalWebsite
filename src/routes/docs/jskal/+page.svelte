@@ -37,7 +37,7 @@
 
     The same package is supported across two different JS runtimes.
     You can set up JSKal with both Deno and Bun in a few initial steps.
-    Although both of these runtimes use TypeScript by default, we'll use JavaScript for our examples.
+    Although both of these runtimes use TypeScript by default, let's use JavaScript for our examples.
     You can continue with TypeScript if you wish.
 
     <Code

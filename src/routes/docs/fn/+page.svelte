@@ -133,5 +133,97 @@
         output={"Sum = 100"}
     />
 
+    A function that invokes itself is called a recursive function. A recursive function must always have a base condition that ends the function execution. An absent base condition may cause the function to execute infinitely. Consider the classic factorial example.
+
+    <Code
+        lang="kal"
+        caption="factorial.kal"
+        code={[
+            "fn fact -> n {",
+            "    ;; base condition",
+            "    if n <= 1 {",
+            "        <- 1.",
+            "    }\n",
+            "    ;; recursive func call",
+            "    <- n * $(:fact (n - 1)).",
+            "}\n",
+            ":fact 5 -> val.\n",
+            "stdout \"5! = \" val \"\\n\"."
+        ]}
+        output={"5! = 120"}
+    />
+
+    Functions parameters can have default values. That means, if a value is not passed to a parameter, the function assigns a default value to it.
+
+    <br /><br />
+    Assign default values to a parameter using the <Fence>:</Fence> operator after the parameter name.
+    Let's revisit the greet function:
+
+    <Code
+        lang="kal"
+        caption="greet.kal"
+        code={[
+            "fn greet -> name: \"Kal\" {",
+            "    stdout \"Hello \" name \"!\\n\".",
+            "}\n",
+            ":greet.",
+            ":greet \"Barry\"."
+        ]}
+        output={"Hello Kal!\nHello Barry!"}
+    />
+
+    Notice how during the first invocation of greet no argument was passed. Therefore, it picked up the default value. In the next invocation, an actual argument is passed, it thus overrides the default values of the parameter.
+
+    <br /><br />
+    Multiple arguments can have default values. It's not mandatory to override none or all arguments of a function. You can choose to override only the required parameters.
+
+    <Code
+        lang="kal"
+        caption="defArgs.kal"
+        code={[
+            "fn add -> x: 10, y: 20 {",
+            "    <- x + y.",
+            "}\n",
+            ";; all default",
+            "stdout $(:add) \"\\n\".\n",
+            ";; override x, default y",
+            "stdout $(:add 20) \"\\n\".\n",
+            ";; override both x and y",
+            "stdout $(:add 45 55) \"\\n\"."
+        ]}
+        output={"30\n40\n100"}
+    />
+
+
+    So far, we have written functions that take a fixed number of arguments. Often, you may want to write functions that take an unknown number of arguments.
+    A variadic function accepts a variadic parameter.
+
+    <br /><br />
+    A variadic parameter is a single parameter that encapsulates all the unknown amount of arguments into a single list. The function body can then utilize the arguments from the list as needed.
+
+    <br /><br />
+    Variadic parameter is created by prefixing it with <Fence>...</Fence>.
+    Let's create a variadic function, <Fence>sum</Fence> which accepts any number of arguments and returns their sum.
+
+    <Code
+        lang="kal"
+        caption="variadicSum.kal"
+        code={[
+            "fn sum -> ...nums {",
+            "    ;; argument list",
+            "    stdout \"Args: \" nums \"\\n\".",
+            "    var total = 0.\n",
+            "    loop each in nums {",
+            "        total = total + each.",
+            "    }\n",
+            "    <- total.",
+            "}\n",
+            ":sum 1 2 3 -> total.",
+            "stdout \"Total = \" total \"\\n\".\n",
+            ":sum 1 2 3 4 5 -> total.",
+            "stdout \"Total = \" total \"\\n\"."
+        ]}
+        output={"Args: [1, 2, 3]\nTotal = 6\nArgs: [1, 2, 3, 4, 5]\nTotal = 15"}
+    />
 
 </Content>

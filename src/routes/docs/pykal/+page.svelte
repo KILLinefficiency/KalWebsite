@@ -7,7 +7,7 @@
 </script>
 
 <Content title="PyKal" desc="Wait... it can do that!?" next="/docs" previous="/docs">
-    What if we could embed Kal not only in C++, but in Python as well?
+    What if you could embed Kal not only in C++, but in Python as well?
 
     <br /><br />
     PyKal is an official Python library that provides bindings for a Python program to communicate with libkal.
