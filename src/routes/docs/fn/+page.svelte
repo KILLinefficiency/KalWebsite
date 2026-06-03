@@ -226,4 +226,99 @@
         output={"Args: [1, 2, 3]\nTotal = 6\nArgs: [1, 2, 3, 4, 5]\nTotal = 15"}
     />
 
+    You can pair regular parameters along with a variadic parameter.
+
+    <Code
+        lang="kal"
+        caption="variadicSumAgain.kal"
+        code={[
+            "fn sum -> x, y, ...nums {",
+            "    stdout \"First Sum = \" (x + y) \"\\n\".",
+            "    stdout \"Args: \" nums \"\\n\".\n",
+            "    var total = 0.\n",
+            "    loop each in nums {",
+            "        total = total + each.",
+            "    }\n",
+            "    <- total.",
+            "}\n",
+            ":sum 1 2 3 4 5 -> total.\n",
+            "stdout \"Total = \" total \"\\n\"."
+        ]}
+        output={"First Sum = 3\nArgs: [3, 4, 5]\nTotal = 12"}
+    />
+
+    Here, out of all five arguments passed to the invocation of the <Fence>sum</Fence> function, positionally, 1 and 2 are assigned to <Fence>x</Fence> and <Fence>y</Fence> respectively.
+    The rest of the arguments are encapsulated inside the <Fence>nums</Fence> parameters as a list.
+
+    <br /><br />
+    <Card>
+        The variadic parameter must always be the last parameter in the function parameter list.
+    </Card>
+    <br />
+
+    In contrast to variadics, the spread operator has another use case. It can be used to expand the elements of a list or dictionary into arguments during a function invocation.
+
+    <br /><br />
+    Prefix a list variable or a list literal with <Fence>...</Fence> to expand its contents into arguments.
+
+    <Code
+        lang="kal"
+        caption="spread.kal"
+        code={[
+            "fn greet -> time, name {",
+            "    stdout \"Good \" time \" \" name \"!\\n\".",
+            "}\n",
+            "var values = [\"evening\", \"friend\"].\n",
+            ":greet ...values.",
+        ]}
+        output={"Good evening friend!"}
+    />
+
+    Here, the values <Fence>"evening"</Fence> and <Fence>"friend"</Fence> from the values list are expanded as arguments to the <Fence>greet</Fence> function.
+    They are assigned to <Fence>time</Fence> and <Fence>name</Fence> parameters respectively.
+
+    <br /><br />
+    You can also mix regular arguments with spread arguments.
+
+    <Code
+        lang="kal"
+        caption="regularAndSpread.kal"
+        code={[
+            "fn add -> x, y, z {",
+            "    <- x + y + z.",
+            "}\n",
+            "var values = [25, 35].\n",
+            ":add 15 ...values -> a.",
+            ":add 15 ...[25, 35] -> b.\n",
+            "stdout \"A = \" a \"\\n\".",
+            "stdout \"B = \" b \"\\n\".",
+        ]}
+        output={"A = 75\nB = 75"}
+    />
+
+    Order of elements in the list matters since the arguments are assigned positionally.
+
+    <br /><br />
+    Spreading a dictionary allows you to expand arguments explicitly based on the names of the parameters.
+    Kal matches the parameters and values from the dictionary based on the names of the keys. Here, the order of key-value pairs does not matter.
+
+    <Code
+        lang="kal"
+        caption="spreadDict.kal"
+        code={[
+            "fn greet -> time, name {",
+            "    stdout \"Good \" time \" \" name \"!\\n\".",
+            "}\n",
+            "var values = #(",
+            "    name -> \"friend\",",
+            "    time -> \"evening\"",
+            ").\n",
+            ":greet ...values."
+        ]}
+        output={"Good evening friend!"}
+    />
+
+    Notice how the order of parameters in the parameter list for the greet function does not match with the order of key-value pairs from the values dictionary.
+    Kal matches parameters with the keys from the dictionary resulting in a successful function invocation.
+
 </Content>
