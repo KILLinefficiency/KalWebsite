@@ -1,6 +1,6 @@
 const syntax = {
     kal: {
-        keywords: [/var/g, /stdout/g, /fn/g, /loop/g, /\sin\s/g, /if/g, /else/g, /static/g, /break/g, /len/g, /continue/g],
+        keywords: [/var/g, /stdout/g, /fn/g, /loop/g, /\sin\s/g, /if/g, /else/g, /static/g, /break/g, /len/g, /continue/g, /defer/g],
         preproc: /^@.+/g,
         string: /\".*?\"/g,
         comments: [/;[\w\d\s]+;/, /;;.*/],
@@ -8,7 +8,7 @@ const syntax = {
     },
 
     bash: {
-        command: /(?<=\$\s)[\w]+/g,
+        command: /(?<=\$\s)[\w\+]+/g,
         args: /(?<=\$\s[\w]+\s)[\w]+\s/g,
         flag: /-[-a-zA-z0-9=]+/g,
         exec: /\.\/[\w\.]+/g,
@@ -19,7 +19,8 @@ const syntax = {
     },
 
     cpp: {
-        include: /^#.+/g,
+        include: /^#[\w]+/g,
+        header: /&lt;[\w]+&gt;/g,
         obj: /(Kal|Result|Table)(\(\))?/g,
         strings: [/R\"\((.*?|\n)*\)\"/g, /\".*?\"/g],
         keywords: [/char/g, /for/g, /const/g, /double/g, /return/g, /using/g, /std::cout/g, /std::string/g, /std::vector/g, /std::unordered_map/g],
@@ -107,6 +108,7 @@ export function highlight(lines, lang) {
             line = line.replace(">", "&gt;");
 
             line = line.replace(syntax.cpp.include, `<span style='color: var(--yellow)'>${line.match(syntax.cpp.include)}</span>`);
+            line = line.replace(syntax.cpp.header, `<span style='color: var(--green)'>${line.match(syntax.cpp.header)}</span>`);
 
             syntax.cpp.strings.forEach((string) => {
                 const strings = line.match(string);

@@ -321,4 +321,80 @@
     Notice how the order of parameters in the parameter list for the greet function does not match with the order of key-value pairs from the values dictionary.
     Kal matches parameters with the keys from the dictionary resulting in a successful function invocation.
 
+    <br /><br />
+    You can ensure the execution of a function at the end of the scope of current function using <Fence>defer</Fence>.
+
+    <br /><br />
+    In many cases, a function returns early. Every statement after a return is skipped. Critical function invocations may also be skipped. <Fence>defer</Fence> ensures that function invocation happens whether a function ends normally or returns early.
+    It follows a First In Last Out approach where the function that is deferred first is executed last.
+
+    <Code
+        lang="kal"
+        caption="defer.kal"
+        code={[
+            "fn end -> id {",
+            "    stdout \"End: \" id \"\\n\".",
+            "}\n",
+            "fn main {",
+            "    defer $(:end 1).",
+            "    defer $(:end 2).",
+            "    defer $(:end 3).\n",
+            "    stdout \"Fn: Main\\n\".",
+            "}\n",
+            ":main."
+        ]}
+        output={"Fn: Main\nEnd: 3\nEnd: 2\nEnd: 1"}
+    />
+
+    Alternatively, you can invoke functions in First In First Out order by queuing multiple invocations in a single <Fence>defer</Fence> statement.
+
+    <Code
+        lang="kal"
+        caption="deferFIFO.kal"
+        code={[
+            "fn end -> id {",
+            "    stdout \"End: \" id \"\\n\".",
+            "}\n",
+            "fn main {",
+            "    defer $(:end 1)",
+            "        $(:end 2)",
+            "        $(:end 3).\n",
+            "    stdout \"Fn: Main\\n\".",
+            "}\n",
+            ":main."
+        ]}
+        output={"Fn: Main\nEnd: 1\nEnd: 2\nEnd: 3"}    
+    />
+
+    Functions with deferred function invocations can be composed together.
+
+    <Code
+        lang="kal"
+        caption="composedDefer.kal"
+        code={[
+            "fn end -> id {",
+            "    stdout \"End: \" id \"\\n\".",
+            "}\n",
+            "fn testA {",
+            "    defer $(:end 1).",
+            "    defer $(:end 2).\n",
+            "    stdout \"testA here!\\n\".",
+            "    <- \"testA ends!\".",
+            "}\n",
+            "fn testB {",
+            "    defer $(:end 3).",
+            "    defer $(:end 4).\n",
+            "    :testA -> status.",
+            "    stdout status \"\\n\".",
+            "    stdout \"testB here!\\n\".",
+            "}\n",
+            "fn test {",
+            "    defer $(:testB).",
+            "    stdout \"Done!\\n\".",
+            "}\n",
+            ":test."
+        ]}
+        output={"Done!\ntestA here!\nEnd: 2\nEnd: 1\ntestA ends!\ntestB here!\nEnd: 4\nEnd: 3"}
+    />
+
 </Content>
