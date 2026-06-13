@@ -10,6 +10,16 @@ export default [
         ""
     ],
     [
+        "Statements",
+        "/docs/statements",
+        ""
+    ],
+    [
+        "Expressions",
+        "/docs/expressions",
+        ""
+    ],
+    [
         "Control Flow",
         "/docs/control",
         ""

@@ -129,9 +129,6 @@
                 {#if results.length !== 0}
                     {#each results as link, index}
                         <a class = "topic" href={link[1]}>
-                            {#if index < 10}
-                                {" "}
-                            {/if}
                             {index + 1}. {link[0]}
                         </a>
                     {/each}

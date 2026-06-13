@@ -1,4 +1,6 @@
 <script>
+    import Logo from "$lib/components/Logo.svelte";
+
     let current = 1;
     let total = 3;
     function setNext() {

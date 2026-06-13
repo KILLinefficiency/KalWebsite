@@ -8,13 +8,8 @@
     Kal has no third-party dependency, hence it's very convenient to compile it from the source code. Kal uses a build script to manage every aspect of compilation and installation including the Kal interpreter, tests and libkal.
     <br /> <br />
     Please note that Kal compilation and installation is tested on Linux and therefore this document highlights installation on Linux only. Installation on macOS should be similar. Windows users are recommended to use Windows Subsystem for Linux (WSL).
+
     <br /> <br />
-
-    <Card>
-        Pre-compiled static binaries for Kal are also available for download from the Releases page.
-    </Card>
-
-    <br />
     Make sure you have required Linux utilities installed/updated before compiling Kal.
 
     <Code
@@ -88,4 +83,20 @@
             </Card>
         </li>
     </ol>
+
+    Let's write and run a simple Kal program.
+
+    <Code
+        lang="kal"
+        caption="hello.kal"
+        code={["stdout \"Hello World!\\n\""]}
+        output={"Hello World"}
+    />
+
+    Navigate to the directory where the source file exists and pass it to the Kal interpreter.
+
+    <Code
+        lang="bash"
+        code={["$ kal hello.kal"]}
+    />
 </Content>

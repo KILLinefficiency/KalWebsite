@@ -25,6 +25,19 @@
         background-color: var(--base);
         text-decoration: underline;
     }
+
+    :global(a) {
+        font-size: 20px;
+        font-weight: bold;
+        color: var(--blue);
+        text-decoration: none;
+    }
+
+    @media screen and (max-width: 1000px) {
+        :global(a) {
+            font-size: 15px;
+        }
+    }
 </style>
 
 <Navbar />

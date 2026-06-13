@@ -6,21 +6,6 @@
     import Table from "$lib/components/Table.svelte";
 </script>
 
-<style>
-    a {
-        font-size: 20px;
-        font-weight: bold;
-        color: var(--blue);
-        text-decoration: none;
-    }
-
-    @media screen and (max-width: 1000px) {
-        a {
-            font-size: 15px;
-        }
-    }
-</style>
-
 <Content title="JSKal" desc="It can do that... again!?" next="/docs" previous="/docs">
     You embed Kal with C++, then with Python. And guess what? You can do it with JavaScript as well!
 

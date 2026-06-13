@@ -1,9 +1,9 @@
 const syntax = {
     kal: {
-        keywords: [/var/g, /stdout/g, /fn/g, /loop/g, /\sin\s/g, /if/g, /else/g, /static/g, /break/g, /len/g, /continue/g, /defer/g],
+        keywords: [/var/g, /stdout/g, /fn/g, /loop/g, /\sin\s/g, /if/g, /else/g, /static/g, /break/g, /len/g, /continue/g, /defer/g, /null/g, /type/g],
         preproc: /^@.+/g,
         string: /\".*?\"/g,
-        comments: [/;[\w\d\s]+;/, /;;.*/],
+        comments: [/;[\w\d\s<>/]+;/, /;;.*/],
         fn: /(?<!pkg):[a-zA-Z0-9_]+/g
     },
 
@@ -52,7 +52,7 @@ export function highlight(lines, lang) {
 
     for(let line of lines) {
         if(lang === "kal") {
-            line = line.replace("\n", "<br />");
+            line = line.replaceAll("\n", "<br />");
             syntax.kal.keywords.forEach((keyword) => {
                 line = line.replace(keyword, `<span style='color: var(--red)'>${(line.match(keyword) ?? [""])[0]}</span>`)
             });
