@@ -2,6 +2,7 @@
     import Content from "$lib/components/Content.svelte";
     import Code from "$lib/components/Code.svelte";
     import Fence from "$lib/components/Fence.svelte";
+    import Card from "$lib/components/Card.svelte";
 </script>
 
 <Content title="Statements" desc="And so we begin..." next="/docs" previous="/docs">
@@ -549,6 +550,180 @@
             "stdout string \"\\n\"."
         ]}
         output={"Formatted String!"}
+    />
+
+    You may need to extract values from lists and dictionaries into distinct variables. This is called unpacking.
+
+    <br /><br />
+    Use the list's <Fence>[</Fence> and <Fence>]</Fence> syntax to unpack variables from a list.
+
+    <br /><br />
+    First, let's see how values are extracted without unpacking.
+
+    <Code
+        lang="kal"
+        caption="extractValues.kal"
+        code={[
+            "var data = [1, 2, 3].\n",
+            "var x = data[0],",
+            "    y = data[1],",
+            "    z = data[2].\n",
+            "stdout x \" \" y \" \" z \"\\n\"."
+        ]}
+        output={"1 2 3"}
+    />
+
+    Compact this using unpacking.
+
+    <Code
+        lang="kal"
+        caption="unpack.kal"
+        code={[
+            "var data = [1, 2, 3].\n",
+            "var [x, y, z] = data.\n",
+            "stdout x \" \" y \" \" z \"\\n\"."
+        ]}
+        output={"1 2 3"}
+    />
+
+    You are not required to unpack all values. Consider unpacking 2 values from a list of 3 values.
+
+    <Code
+        lang="kal"
+        caption="partialUnpack.kal"
+        code={[
+            "var data = [1, 2, 3].\n",
+            "var [x, y] = data.\n",
+            "stdout x \" \" y \"\\n\"."
+        ]}
+        output={"1 2"}
+    />
+
+    Values are unpacked sequentially. The placeholder symbol, <Fence>_</Fence> is used to maintain the sequence without unpacking a value from that position.
+
+    <br /><br />
+    Consider unpacking the first and third value from a list.
+
+    <Code
+        lang="kal"
+        caption="placeholderUnpack.kal"
+        code={[
+            "var data = [1, 2, 3].\n",
+            "var [x, _, z] = data.\n",
+            "stdout x \" \" z \"\\n\"."
+        ]}
+        output={"1 3"}
+    />
+
+    The syntax can be nested to unpack more complex structures.
+    
+    <Code
+        lang="kal"
+        caption="nestedUnpack.kal"
+        code={[
+            "var data = [1, 2, [3, 4]].\n",
+            "var [_, x, [_, y]] = data.\n",
+            "stdout x \" \" y \"\\n\"."
+        ]}
+        output={"2 4"}
+    />
+
+    Here, data contains a nested list. The unpack syntax matches the same structure to extract 2 and 4.
+
+    <br /><br />
+    Similarly, values can be unpacked from dictionaries.
+
+    <Code
+        lang="kal"
+        caption="dictUnpack.kal"
+        code={[
+            "var data = #(",
+            "    planet -> \"Earth\",",
+            "    species -> \"Human\"",
+            ").\n",
+            "var #(species) = data.",
+            "stdout \"Hi \" species \"\\n\"."
+        ]}
+        output={"Hi Human"}
+    />
+
+    List and Dictionary unpacking syntaxes can be combined together in case of nested structure.
+
+    <Code
+        lang="kal"
+        caption="combinedUnpack.kal"
+        code={[
+            "var data = [",
+            "    \"Hi\",",
+            "    \"Hello\",",
+            "    #(",
+            "        name -> \"Kal\",",
+            "        runsOn -> \"Interpreter\"",
+            "    )",
+            "].\n",
+            "var [_, greet, #(name)] = data.\n",
+            "stdout greet \" \" name \"\\n\"."
+        ]}
+        output={"Hello Kal"}
+    />
+
+    Variables in Kal are evaluated as soon as they are initialized. It's possible to delay the evaluation to the point where the variable is actually used.
+
+    <br /><br />
+    Similar to a <Fence>var</Fence> statement, the <Fence>inert</Fence> statement declares a lazy variable.
+
+    <Code
+        lang="kal"
+        caption="inert.kal"
+        code={[
+            "inert data = 5 + 8.",
+            "stdout data \"\\n\"."
+        ]}
+        output={"13"}
+    />
+
+    In this case, the <Fence>data</Fence> variable was defined but its value was not evaluated immediately.
+    It's evaluated when it is used on the next line.
+
+    <br /><br />
+    Let's look at another example which makes more sense.
+
+    <Code
+        lang="kal"
+        caption="lazyEval.kal"
+        code={[
+            "var a = 20.\n",
+            "inert x = a + 10.",
+            "a = 90.\n",
+            "stdout x \"\\n\"."
+        ]}
+        output={"100"}
+    />
+
+    Let's break this down line by line.
+    <ul>
+        <li>A variable <Fence>a</Fence> is initialized to value 20.</li>
+        <li>An inert variable <Fence>x</Fence> is lazily initialized to expression <Fence>a + 10</Fence>. However, it's not evaluated immediately, so the final value 30 is never obtained.</li>
+        <li><Fence>a</Fence> is reassigned to 90.</li>
+        <li><Fence>x</Fence> is used by <Fence>stdout</Fence> and thus the expression <Fence>a + 10</Fence> is revisited and evaluated at this point. The value of a has changed to 90, therefore the final evaluated value of <Fence>x</Fence> becomes 90 + 10 = <Fence>100</Fence>.</li>
+    </ul>
+
+    <Card>
+        Inert variables may cause unintended side-effects and must be used with caution.
+    </Card>
+
+    Since the evaluation is delayed for inert variables, you may use it in cases where regular variables may not work.
+
+    <Code
+        lang="kal"
+        caption="noErrInert.kal"
+        code={[
+            "inert data = x + y. ;; no error\n",
+            "var x = 200,",
+            "    y = 100.\n",
+            "stdout data \"\\n\"."
+        ]}
+        output={"300"}
     />
 
 
