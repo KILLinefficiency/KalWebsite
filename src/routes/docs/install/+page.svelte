@@ -8,16 +8,12 @@
     Kal has no third-party dependency, hence it's very convenient to compile it from the source code. Kal uses a build script to manage every aspect of compilation and installation including the Kal interpreter, tests and libkal.
     <br /> <br />
     Please note that Kal compilation and installation is tested on Linux and therefore this document highlights installation on Linux only. Installation on macOS should be similar. Windows users are recommended to use Windows Subsystem for Linux (WSL).
+
     <br /> <br />
-
-    <Card>
-        Pre-compiled static binaries for Kal are also available for download from the Releases page.
-    </Card>
-
-    <br />
     Make sure you have required Linux utilities installed/updated before compiling Kal.
 
     <Code
+        lang="bash"
         code={[
             "$ sudo apt install \\",
             "    git bash gcc g++ -y"
@@ -28,6 +24,7 @@
         <li>
             Clone the Kal repository. Shallow clone for faster download.
             <Code
+                lang="bash"
                 code={[
                     "$ git clone --depth=1 \\",
                     "    https://www.github.com/KILLinefficiency/Kal"
@@ -38,6 +35,7 @@
         <li>
             Optionally run tests to make sure the latest code is stable.
             <Code
+                lang="bash"
                 code={
                     ["$ ./build.sh test"]
                 }
@@ -47,6 +45,7 @@
         <li>
             Compile the Kal interpreter. This will put the compiled binary in the ./bin folder.
             <Code
+                lang="bash"
                 code={
                     ["$ ./build.sh compile"]
                 }
@@ -56,6 +55,7 @@
         <li>
             Build libkal. This will put libkal and the associated files in the ./bin folder.
             <Code
+                lang="bash"
                 code={
                     ["$ ./build.sh embed"]
                 }
@@ -65,6 +65,7 @@
         <li>
             You can choose to install Kal and libkal on your system directly. [Recommended]
             <Code
+                lang="bash"
                 code={
                     ["$ ./build.sh install"]
                 }
@@ -82,4 +83,20 @@
             </Card>
         </li>
     </ol>
+
+    Let's write and run a simple Kal program.
+
+    <Code
+        lang="kal"
+        caption="hello.kal"
+        code={["stdout \"Hello World!\\n\""]}
+        output={"Hello World"}
+    />
+
+    Navigate to the directory where the source file exists and pass it to the Kal interpreter.
+
+    <Code
+        lang="bash"
+        code={["$ kal hello.kal"]}
+    />
 </Content>

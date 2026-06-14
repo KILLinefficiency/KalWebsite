@@ -2,22 +2,61 @@ export default [
     [
         "Introduction",
         "/docs/",
-        [
-            "first"
-        ]
+        ""
     ],
     [
         "Install Kal",
         "/docs/install",
-        [
-            "second"
-        ]
+        ""
+    ],
+    [
+        "Statements",
+        "/docs/statements",
+        ""
+    ],
+    [
+        "Expressions",
+        "/docs/expressions",
+        ""
+    ],
+    [
+        "Control Flow",
+        "/docs/control",
+        ""
+    ],
+    [
+        "Functions",
+        "/docs/fn",
+        ""
+    ],
+    [
+        "Scopes & Shadowing",
+        "/docs/scope",
+        ""
     ],
     [
         "Packages & Preprocessor",
         "/docs/preproc",
-        [
-            "third"
-        ]
+        ""
+    ],
+    [
+        "References",
+        "/docs/ref",
+        ""
+    ],
+    [
+        "Embeddable Kal",
+        "/docs/embeddable",
+        ""
+    ],
+    [
+        "PyKal",
+        "/docs/pykal",
+        ""
+    ],
+    [
+        "JSKal",
+        "/docs/jskal",
+        ""
     ]
 ];

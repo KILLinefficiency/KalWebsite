@@ -1,4 +1,6 @@
 <script>
+    import { highlight } from "$lib/utils/syntax.svelte.js";
+
     let {
         code,
         lang = "kal",
@@ -10,53 +12,22 @@
     let outputLabel = $state("Show");
     let outputDisplay = $state(false);
 
-    const keywords = [/stdout/g];
-    const string = /\".*?\"/g;
-    const comments = [/;[\w\d\s]+;/, /;;.*/];
-
     function toggleOutput() {
         outputDisplay = !outputDisplay;
         outputLabel = (outputLabel === "Show") ? "Hide" : "Show";
     }
 
     async function copy() {
-        await navigator.clipboard.writeText(code.join("\n"));
+        let snippet = (lang != "bash")
+            ? code.join("\n")
+            : code.map((line) => line.substr(2)).join("\n");
+
+        await navigator.clipboard.writeText(snippet);
+        
         copyLabel = "Copied";
         setTimeout(() => {
             copyLabel = "Copy";
         }, 2000);
-    }
-
-    function highlight(lines, lang) {
-        let highlightedCode = [];
-
-        for(let line of lines) {
-            if(lang === "kal") {
-                keywords.forEach((keyword) => {
-                    line = line.replace(keyword, `<span style='color: var(--red)'>${(line.match(keyword) ?? [""])[0]}</span>`)
-                });
-
-                comments.forEach((comment) => {
-                    line = line.replace(comment, `<span style='color: var(--gray)'>${line.match(comment)}</span>`);
-                });
-
-                const strings = line.match(string);
-                if(strings != null) {
-                    strings.forEach((string) => {
-                        line = line.replace(string, `<span style='color: var(--green)'>${string}</span>`);
-                    });
-                }
-            }
-            else if(lang === "bash") {
-                //
-            }
-
-            highlightedCode.push(line);
-        }
-
-        let text = highlightedCode.join("\n");
-        console.log(text);
-        return text;
     }
 </script>
 
@@ -75,7 +46,7 @@
         border-radius: 10px;
         font-size: 20px;
         max-width: 1000px;
-        min-width: 300px;
+        min-width: 500px;
     }
 
     .top {
@@ -114,6 +85,7 @@
 
     .output {
         font-family: "JetBrains Mono", serif;
+        font-variant-ligatures: none;
         background-color: var(--surface);
         margin-top: 20px;
         border-radius: 10px;
@@ -141,13 +113,15 @@
     pre {
         margin-bottom: 10px;
         font-family: "JetBrains Mono", serif;
+        font-variant-ligatures: none;
+        overflow-x: auto;
     }
 
     @media screen and (max-width: 1000px) {
         .code {
             font-size: 13px;
             max-width: 300px;
-            overflow-x: auto;
+            min-width: 250px;
             scrollbar-width: none;
         }
         .first, .second, .third {
@@ -187,7 +161,7 @@
 
         {#if outputDisplay}
             <div class = "output">
-                {output}
+                {@html output.replace(/\n/g, "<br />")}
             </div>
         {/if}
     </div>

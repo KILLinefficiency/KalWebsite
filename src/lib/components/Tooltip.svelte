@@ -47,6 +47,12 @@
         display: block;
         animation: appear 0.33s;
     }
+
+    @media screen and (max-width: 1000px) {
+        .tooltip {
+            font-size: 15px;
+        }
+    }
 </style>
 
 <span class = "word">

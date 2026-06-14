@@ -5,16 +5,21 @@
     let { children } = $props();
 
     async function search(query) {
-        query = query.trim();
+        query = query.trim().toLowerCase();
         if(query === "") return Links;
 
-        const queryTokens = query.toLowerCase().split(" ");
-        return Links.filter(data => {
+        const queryTokens = query.split(" ");
+        return Links.filter((data) => {
             const title = data[0].toLowerCase();
+            // const x = queryTokens.some((tag) => data[2].includes(tag));
+            // $inspect(queryTokens);
+            // $inspect(data[2].join(" "));
+            // $inspect(x);
             return (
                 title.includes(query) ||
-                data[2].some(tag => queryTokens.includes(tag)) ||
-                title.split(" ").some(tag => queryTokens.includes(tag))
+                query.includes(title) ||
+                title.split(" ").some((tag) => queryTokens.includes(tag)) ||
+                queryTokens.some((tag) => data[2].includes(tag))
             );
         });
     }
@@ -60,6 +65,19 @@
         font-size: 20px;
     }
 
+    .topic {
+        font-size: 20px;
+        color: var(--blue);
+        text-decoration: none;
+        padding: 5px 10px;
+        margin: 3px 0px;
+        border-radius: 10px;
+    }
+
+    .topic:hover {
+        background-color: var(--surface)
+    }
+
     @media screen and (max-width: 1000px) {
         .grid {
             grid-template-columns: 100%;
@@ -74,33 +92,29 @@
             width: 90%;
             height: 200px;
             margin: 0px auto;
+            padding: 10px 0;
         }
-        /* Just for now, I might need to remove this if the text length is large. */
-        /*.panel ol {
-            display: grid;
-            grid-template-columns: auto auto;
-            column-gap: 60px;
-        }*/
+        .panel input {
+            width: 60%;
+            font-size: 15px;
+            margin: 15px auto;
+            border-right: 3px solid var(--green);
+        }
         .contents-title {
             display: block;
             text-align: center;
             margin-top: 20px;
-            font-size: 16px;
+            font-size: 20px;
             font-weight: bold;
+        }
+
+        .topic {
+            font-size: 15px;
+            margin-left: 15px;
+            margin-right: 15px;
         }
     }
 
-    .topic {
-        font-size: 20px;
-        color: var(--blue);
-        text-decoration: none;
-        padding: 5px 10px;
-        margin: 3px 0px;
-        border-radius: 10px;
-    }
-    .topic:hover {
-        background-color: var(--surface)
-    }
 </style>
 
 <div class = "container">
@@ -113,8 +127,10 @@
                 <p class="search-tag">Searching...</p>
             {:then results}
                 {#if results.length !== 0}
-                    {#each results as link}
-                        <a class = "topic" href={link[1]}>{link[0]}</a>
+                    {#each results as link, index}
+                        <a class = "topic" href={link[1]}>
+                            {index + 1}. {link[0]}
+                        </a>
                     {/each}
                 {:else}
                     <p class="search-tag">No results found.</p>

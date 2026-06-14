@@ -7,7 +7,7 @@
     .main {
         overflow: auto;
         margin-top: 3vh;
-        height: 90vh;
+        max-height: 90vh;
         scrollbar-width: none;
     }
     .entries {
