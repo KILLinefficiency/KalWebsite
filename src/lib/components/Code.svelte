@@ -167,6 +167,6 @@
     </div>
 
     {#if caption}
-        <p>{caption}</p>
+        <p><strong>{caption}</strong></p>
     {/if}
 </div>

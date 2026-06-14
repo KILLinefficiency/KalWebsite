@@ -89,7 +89,7 @@
     <Code
         lang="kal"
         caption="hello.kal"
-        code={["stdout \"Hello World!\\n\""]}
+        code={["stdout \"Hello World!\\n\"."]}
         output={"Hello World"}
     />
 

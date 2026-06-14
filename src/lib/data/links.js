@@ -20,6 +20,11 @@ export default [
         ""
     ],
     [
+        "Built-ins",
+        "/docs/builtins",
+        ""
+    ],
+    [
         "Control Flow",
         "/docs/control",
         ""
@@ -32,6 +37,11 @@ export default [
     [
         "Scopes & Shadowing",
         "/docs/scope",
+        ""
+    ],
+    [
+        "Serialization",
+        "/docs/serialization",
         ""
     ],
     [
