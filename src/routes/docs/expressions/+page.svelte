@@ -249,4 +249,107 @@
         output={"a = 10\nb = 20\nx = 3\nvalue = 200"}
     />
 
+    You may have noticed the excessive use of parentheses.
+    They override the order of precedence and allow sub-expression to be evaluated prior.
+
+    <Fence>*</Fence> operator has a higher order of precedence than the <Fence>+</Fence> operator.
+
+    <Code
+        lang="kal"
+        caption="precedence.kal"
+        code={[
+            "var value = 1 + 2 * 3.",
+            "stdout \"value = \" value \"\\n\"."
+        ]}
+        output={"value = 7"}
+    />
+
+    Here, sub-expression <Fence>2 * 3</Fence> is evaluated first and the result is added to 1 giving 7 as the final value.
+
+    <br /><br />
+    The sub-expression <Fence>1 + 2</Fence> can be made to evaluate first by wrapping it with parentheses.
+
+    <Code
+        lang="kal"
+        caption="parenPrecedence.kal"
+        code={[
+            "var value = (1 + 2) * 3.",
+            "stdout \"value = \" value \"\\n\"."
+        ]}
+        output={"value = 9"}
+    />
+
+    Now, <Fence>(1 + 2)</Fence> is evaluated first and the result is multiplied with 3 giving 9 as the final value.
+
+    <br /><br />
+    Parentheses are also strictly required when you are passing expressions as arguments to statements.
+
+    <Code
+        lang="kal"
+        caption="exprArg.kal"
+        code={[
+            "stdout 5 + 8 \"\\n\". ;; error"
+        ]}
+    />
+
+    Wrap the expression with parentheses.
+
+    <Code
+        lang="kal"
+        caption="exprArg.kal"
+        code={[
+            "stdout (5 + 8) \"\\n\"."
+        ]}
+        output={"13"}
+    />
+
+    Values returned by statements are directly assigned to variables.
+    These values can't be used in an expression directly on an immediate basis.
+    Kal allows you to convert a statement into an expression so that other operators and operands can use the return value immediately.
+
+    <br /><br />
+    Let's consider two statements <Fence>first</Fence> and <Fence>last</Fence>, which return the first and last elements of a list respectively.
+
+    <Code
+        lang="kal"
+        caption="statement.kal"
+        code={[
+            "var data = [30, 45, 60].\n",
+            "first data -> f.",
+            "last data -> l.\n",
+            "stdout \"First = \" f \"\\n\"",
+            "    \"Last = \" l \"\\n\"."
+        ]}
+        output={"First = 30\nLast = 60"}
+    />
+
+    Observe how return values or <Fence>first</Fence> and <Fence>last</Fence> can be used only after their values are assigned to <Fence>f</Fence> and <Fence>l</Fence>.
+
+    <br /><br />
+    This example can be compacted by converting those statements into expressions by wrapping it with <Fence>$(</Fence> and <Fence>)</Fence>. These expressions result in the final return value and hence don't require the target operator (<Fence>{"->"}</Fence>).
+    
+    <Code
+        lang="kal"
+        caption="statementExpr.kal"
+        code={[
+            "var data = [30, 45, 60].\n",
+            "stdout",
+            "    \"First = \" $(first data) \"\\n\"",
+            "    \"Last = \" $(last data) \"\\n\".",
+        ]}
+        output={"First = 30\nLast = 60"}
+    />
+
+    These expressions can used as a part of a larger expression.
+
+    <Code
+        lang="kal"
+        caption="statementExprComplex.kal"
+        code={[
+            "var data = [30, 45, 60].\n",
+            "var sum = $(first data) + $(last data).\n",
+            "stdout \"Sum = \" sum \"\\n\"."
+        ]}
+        output={"Sum = 90"}
+    />
 </Content>
