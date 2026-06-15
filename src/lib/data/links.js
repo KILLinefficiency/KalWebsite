@@ -40,13 +40,13 @@ export default [
         ""
     ],
     [
-        "Serialization",
-        "/docs/serialization",
+        "Packages & Preprocessor",
+        "/docs/preproc",
         ""
     ],
     [
-        "Packages & Preprocessor",
-        "/docs/preproc",
+        "Serialization",
+        "/docs/serialization",
         ""
     ],
     [

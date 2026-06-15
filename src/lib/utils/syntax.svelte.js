@@ -1,6 +1,6 @@
 const syntax = {
     kal: {
-        keywords: [/var/g, /stdout/g, /fn/g, /loop/g, /\sin\s/g, /if\s/g, /else/g, /static/g, /break/g, /len/g, /continue/g, /defer/g, /null/g, /type/g, /inert/g, /first/g, /last/g],
+        keywords: [/var/g, /stdout/g, /fn/g, /loop/g, /\sin\s/g, /if\s/g, /else/g, /static/g, /break/g, /len/g, /continue/g, /defer/g, /null/g, /type/g, /inert/g, /first/g, /last/g, /binWrite/g, /binRead/g],
         preproc: /^@.+/g,
         string: /\".*?\"/g,
         comments: [/;[\w\d\s<>/]+;/, /;;.*/],
