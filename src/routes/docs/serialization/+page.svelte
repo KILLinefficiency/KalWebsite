@@ -5,7 +5,7 @@
     import Card from "$lib/components/Card.svelte";
 </script>
 
-<Content title="Serialization" desc="Defalte & Inflate" next="/docs" previous="/docs">
+<Content title="Serialization" desc="Defalte & Inflate" previous="/docs/preproc" next="/docs/ref">
     All of your data resides in memory during execution. Once your program concludes, the data is lost.
 
     <br /><br />
@@ -139,6 +139,5 @@
     <Card>
         Never manually modify a generated KAST file. Kal can fail at executing a KAST file with modified encoding.
     </Card>
-
 
 </Content>

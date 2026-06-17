@@ -5,7 +5,7 @@
     import Table from "$lib/components/Table.svelte";
 </script>
 
-<Content title="Expressions" desc="Evaluate to a single value..." next="/docs" previous="/docs">
+<Content title="Expressions" desc="Evaluate to a single value..." previous="/docs/statements" next="/docs/builtins">
     Expressions are composed of operators and operands and evaluate to a single final value.
     Kal supports all arithmetic, logical, relational, bitwise and unary operators.
 

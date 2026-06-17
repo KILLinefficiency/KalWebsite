@@ -5,7 +5,7 @@
     import Card from "$lib/components/Card.svelte";
 </script>
 
-<Content title="Statements" desc="And so we begin..." next="/docs" previous="/docs">
+<Content title="Statements" desc="And so we begin..." previous="/docs/install" next="/docs/expressions">
     A statement is a basic unit of execution in Kal. It performs an operation. You have seen <Fence>stdout</Fence> in the previous chapter. It simply prints information to the screen.
     Any information passed to a statement is its argument. A statement can have multiple arguments.
 

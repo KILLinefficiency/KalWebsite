@@ -1,5 +1,6 @@
 <script>
     import { browser } from "$app/environment";
+    import Logo from "$lib/components/Logo.svelte";
 
     let storageName = "KalTheme";
     let theme = $state("dark");
@@ -85,7 +86,7 @@
         .navbar a {
             font-size: 15px;
         }
-        .leading, .trailing {
+        .leading, .trailing, .logo {
             display: none;
         }
     }
@@ -97,6 +98,9 @@
 
 <div id = "1" class = "top">
     <div class = "navbar">
+        <div class = "logo">
+            <Logo />
+        </div>
         <a href="/">Home</a>
         <a href="/docs">Docs</a>
         <a href="/blog">Blog</a>

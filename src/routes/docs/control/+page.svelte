@@ -6,7 +6,7 @@
     import Table from "$lib/components/Table.svelte";
 </script>
 
-<Content title="Control Flow", desc="Sometimes you gotta branch out..." next="/docs" previous="/docs">
+<Content title="Control Flow", desc="Sometimes you gotta branch out..." previous="/docs/builtins" next="/docs/fn">
     It's not necessary that all of your code needs to run sequentially. Sometimes, you need to run a piece of code conditionally.
     Control Flow statements allow you to achieve this. Let's start with the most basic control flow statement: <Fence>if</Fence>.
 
@@ -479,6 +479,20 @@
             "        stdout y \" \".",
             "    }\n",
             "    stdout \"\\n\"",
+            "}"
+        ]}
+        output={"1 2 3\n4 5 6\n7 8 9"}
+    />
+
+    You can use the list unpacking syntax to unpack complex data in the loop segment itself.
+
+    <Code
+        lang="kal"
+        caption="unpackLoop.kal"
+        code={[
+            "var data = [[1, 2, 3], [4, 5, 6], [7, 8, 9]].\n",
+            "loop [x, y, z] in data {",
+            "    stdout x \" \" y \" \" z \"\\n\".",
             "}"
         ]}
         output={"1 2 3\n4 5 6\n7 8 9"}

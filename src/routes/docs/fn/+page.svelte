@@ -5,7 +5,7 @@
     import Fence from "$lib/components/Fence.svelte";
 </script>
 
-<Content title="Functions" desc="Building abstractions!" next="/docs" previous="/docs">
+<Content title="Functions" desc="Building abstractions!" previous="/docs/control" next="/docs/scope">
     A function is a customizable and reusable block of code that can be invoked where ever needed. Functions change the control flow of the program and are used to create layers of abstraction to avoid duplicating code.
 
     <br /><br />
