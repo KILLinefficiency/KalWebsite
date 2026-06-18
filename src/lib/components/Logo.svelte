@@ -1,3 +1,6 @@
+<script>
+    import { base } from "$app/paths";
+</script>
 <style>
     @keyframes grow {
         from {
@@ -17,4 +20,4 @@
     }
 </style>
 
-<img src="/logo.svg" alt="Kal Logo" />
+<img src="{base}/logo.svg" alt="Kal Logo" />
