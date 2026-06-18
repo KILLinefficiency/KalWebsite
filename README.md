@@ -1,6 +1,6 @@
 # Kal Website
 
-This repository contains source code for offical [Kal Website](https://kal-lang.vercel.app). Itis written in Svelte 5 and compiles to static HTML pages with small JS and CSS bundles.
+This repository contains source code for the offical [Kal Website](https://kal-lang.vercel.app). It is written in Svelte 5 and compiles to static HTML pages with small JS and CSS bundles.
 
 ## Installation
 
@@ -41,4 +41,4 @@ The entire website is client-side only. There is no server-side code.
 * [Kal](https://github.com/KILLinefficiency/Kal) - Core Kal Interpreter.
 * [PyKal](https://github.com/KILLinefficiency/PyKal) - Python Bindings for Embeddable Kal.
 * [JSKal](https://github.com/KILLinefficiency/JSKal) - JavaScript Bindings for Embeddable Kal.
-* [Kal Website](https://github.com/KILLinefficiency/KalWebsite) - Offical Kal Website
+* [Kal Website](https://github.com/KILLinefficiency/KalWebsite) - Offical Kal Website.

@@ -726,5 +726,14 @@
         output={"300"}
     />
 
+    So far you have used <Fence>stdout</Fence> which is used to write to the terminal. <Fence>stdin</Fence> allows you to read data from user input into a variable.
 
+    <Code
+        lang="kal"
+        caption="stdin.kal"
+        code={[
+            "stdin \"Name? \" -> name.",
+            "stdout \"Hello \" name \"\\n\"."
+        ]}
+    />
 </Content>

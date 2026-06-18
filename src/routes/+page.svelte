@@ -2,7 +2,7 @@
     import Code from "$lib/components/Code.svelte";
 
     let current = 1;
-    let total = 3;
+    let total = 4;
     function setNext() {
         if(current === total) current = 1;
         else current++;
@@ -32,7 +32,8 @@
         display: flex;
         flex-direction: row;
         gap: 10%;
-        margin: 10px 0px;
+        margin-top: 30px;
+        margin-bottom: 100px;
         height: 90vh;
     }
 
@@ -45,7 +46,6 @@
         width: 500px;
     }
 
-
     .points li {
         margin: 20px;
     }
@@ -57,6 +57,18 @@
 
     .hpoints li {
         margin: 20px;
+    }
+
+    .docs {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+    }
+
+    .docs a {
+        font-size: 100px;
     }
 
     .heading {
@@ -121,6 +133,9 @@
         .points, .hpoints {
             width: 100vw;
             font-size: 14px;
+        }
+        .docs a {
+            font-size: 35px;
         }
     }
 </style>
@@ -257,5 +272,11 @@
                 </div>
             </div>
         </div>
+    </div>
+</div>
+
+<div id = "4" class = "container">
+    <div class = "docs">
+        <a href="/docs">Dive into action!</a>
     </div>
 </div>
