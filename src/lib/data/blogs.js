@@ -1,12 +1,7 @@
 export default [
     [
-        "2nd Jan 2025", "Getting Started",
-        "Learn about setting Kal up", 
-        "https://github.com"
-    ],
-    [
-        "1st Jan 2025", "Why?",
-        "Why I made Kal",
-        "https://svelte.dev"
+        "20th June 2023", "Rise & Shine",
+        "A backstory.",
+        "/blog/rise-and-shine"
     ]
 ];

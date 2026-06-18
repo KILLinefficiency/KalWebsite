@@ -20,6 +20,11 @@ export default [
         ""
     ],
     [
+        "Built-ins",
+        "/docs/builtins",
+        ""
+    ],
+    [
         "Control Flow",
         "/docs/control",
         ""
@@ -37,6 +42,11 @@ export default [
     [
         "Packages & Preprocessor",
         "/docs/preproc",
+        ""
+    ],
+    [
+        "Serialization",
+        "/docs/serialization",
         ""
     ],
     [

@@ -5,7 +5,7 @@
     import Fence from "$lib/components/Fence.svelte";
 </script>
 
-<Content title="References" desc="They simply point to things..." next="/docs" previous="/docs">
+<Content title="References" desc="They simply point to things..." previous="/docs/serialization" next="/docs/embeddable">
     A reference is a managed pointer to an existing variable. It acts as an alias. A reference is a variable in itself but does not carry its own value. It can read from as well as write to the original variable.
 
     <br /><br />

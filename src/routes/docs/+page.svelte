@@ -5,7 +5,7 @@
     import Fence from "$lib/components/Fence.svelte";
 </script>
 
-<Content title="Introduction" desc="Glad to see you here!" next="/docs/install" previous="/docs">
+<Content title="Introduction" desc="Glad to see you here!" next="/docs/install">
     Kal is a general purpose, lightweight, interpreted programming language.
     It aims at combining various paradigms of programming languages in the right ratio to provide a great developer experience.
 
@@ -14,7 +14,7 @@
     It offers fast execution speed, lower memory usage and complete garbage collection.
 
     <br /><br />
-    Kal aims to be a goto language for everyone, whether it be a student trying to write their first line of code, a power user writing scripts to automate tasks or an experienced developer writing utilities.
+    Kal aims to be the goto language for everyone, whether it be a student trying to write their first line of code, a power user writing scripts to automate tasks or an experienced developer writing utilities.
 
     <br /><br />
     Kal isn't just an interpreted language, it can also be embedded into existing C++, Python and JavaScript applications.
@@ -28,6 +28,9 @@
     Kal is entirely hand-crafted with all of its code written without any AI assistance whatsoever.
     Kal also does not utilize any external dependency.
     Every component whether it be parser, preprocessor or serializer is built from ground up.
+
+    <br /><br />
+    Kal is completely free and open source. It is distrubuted under the GNU GPL v3 License.
 
     <br /><br />
     Please note that Kal is still under active development and the current build is in alpha stage. Things are bound to change.

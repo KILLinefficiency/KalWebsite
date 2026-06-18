@@ -1,13 +1,20 @@
-import adapter from '@sveltejs/adapter-vercel';
+import adapterVercel from "@sveltejs/adapter-vercel";
+import adapterStatic from "@sveltejs/adapter-static";
+
+const isGithub = process.env.TARGET === "github";
 
 const config = {
 	kit: {
-		adapter: adapter({
-			fallback: "404.html"
-		}),
+		adapter: isGithub
+			? adapterStatic({ pages: "build" })
+			: adapterVercel(),
 
 		output: {
 			bundleStrategy: "single"
+		},
+
+		paths: {
+			base: isGithub ? process.env.BASE_PATH : ''
 		}
 	}
 };
