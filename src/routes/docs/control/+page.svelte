@@ -94,6 +94,25 @@
         output={"Awesome"}
     />
 
+    You can have more conditional branch apart from <Fence>if</Fence> and <Fence>else</Fence>. Use <Fence>elif</Fence> in that case.
+    <Code
+        lang="kal"
+        caption="elif.kal"
+        code={[
+            "var color = \"yellow\".\n",
+            "if color == \"red\" {",
+            "    stdout \"Stop!\\n\".",
+            "}",
+            "elif color == \"yellow\" {",
+            "    stdout \"Get Ready!\\n\".",
+            "}",
+            "else {",
+            "    stdout \"Go!\\n\".",
+            "}"
+        ]}
+        output={"Get Ready!"}
+    />
+
     Sometimes you may need to declare and use a variable only for a specific context. Take this for an example:
 
     <Code

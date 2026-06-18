@@ -176,6 +176,26 @@
         output={"Result(#(sum -> 100))\n{'sum': Result(100)}\nSum: 100.0"}
     />
 
+    You can have multiple instances of the <Fence>Kal</Fence> class in your Python program. All of them maintain their memory maps separately.
+
+    <Code
+        lang="py"
+        caption="multipleKal.py"
+        code={[
+            "from pykal import Kal\n",
+            "kalA = Kal()",
+            "kalB = Kal()",
+            "kalC = Kal()\n",
+            "kalA.exec('var x = 10.')",
+            "kalB.exec('var x = 20.')",
+            "kalC.exec('var x = 30.')\n",
+            "kalA.exec('stdout x \"\\n\".')",
+            "kalB.exec('stdout x \"\\n\".')",
+            "kalC.exec('stdout x \"\\n\".')"
+        ]}
+        output={"10\n20\n30"}
+    />
+
     <Card>
         PyKal binds with <Fence>libkal.so</Fence> dynamically. Therefore, <Fence>libkal.so</Fence> is required during runtime. PyKal programs can't execute without it.
     </Card>

@@ -254,6 +254,30 @@
         output={"Result(#(sum -> 100))\nSum: 100"}
     />
 
+
+    You can have multiple instances of the <Fence>Kal</Fence> class in your JavaScript program. All of them maintain their memory maps separately.
+
+    <Code
+        lang="js"
+        caption="multipleKal.js"
+        code={[
+            "import Kal from 'jskal';\n",
+            "const kalA = new Kal(),",
+            "    kalB = new Kal(),",
+            "    kalC = new Kal();\n",
+            "kalA.exec(`var x = 10.`);",
+            "kalB.exec(`var x = 20.`);",
+            "kalC.exec(`var x = 30.`);\n",
+            "kalA.exec(`stdout x \"\\n\".`);",
+            "kalB.exec(`stdout x \"\\n\".`);",
+            "kalC.exec(`stdout x \"\\n\".`);\n",
+            "kalA.close();",
+            "kalB.close();",
+            "kalC.close();"
+        ]}
+        output={"10\n20\n30"}
+    />
+
     <Card>
         JSKal binds with <Fence>libkal.so</Fence> dynamically. Therefore, <Fence>libkal.so</Fence> is required during runtime. JSKal programs can't execute without it.
     </Card>
