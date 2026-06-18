@@ -1,5 +1,6 @@
 <script>
     import { browser } from "$app/environment";
+    import { base } from "$app/paths";
     import Logo from "$lib/components/Logo.svelte";
 
     let storageName = "KalTheme";
@@ -93,7 +94,7 @@
 </style>
 
 <svelte:head>
-    <link rel="stylesheet" href="/{theme}.css" />
+    <link rel="stylesheet" href="{base}/{theme}.css" />
 </svelte:head>
 
 <div id = "1" class = "top">
