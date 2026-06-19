@@ -75,7 +75,7 @@
         caption="color.kal"
         code={[
             "style \"red\" \"bold\".",
-            "stdout \"Text in red!\\n\"."
+            "stdout \"Text Red!\\n\"."
         ]}
     />
 
@@ -343,10 +343,31 @@
         output={"#(name -> \"Home\", is -> \"Planet\", biomes -> [\"Forest\", \"Ocean\"])"}
     />
 
+    Finally, use the <Fence>len</Fence> statement to get the length of a list, dictionary or a string.
+    It returns the number of elements, the number of keys and the number of characters for these respective types.
+
+    <Code
+        lang="kal"
+        caption="len.kal"
+        code={[
+            "var data = [1, 2, 3].",
+            "len data -> listLen.\n",
+            "var info = #(",
+            "    name -> \"Earth\",",
+            "    home -> \"yes\"",
+            ").",
+            "len info -> dictLen.\n",
+            "var day = \"24 hours\".",
+            "len day -> strLen.",
+            "stdout listLen \"\\n\"",
+            "    dictLen \"\\n\"",
+            "    strLen \"\\n\"."
+        ]}
+        output={"3\n2\n8"}
+    />
+
     <Card>
         Throughout the examples we used lists and dictionaries as variables.
         However, you can also pass them to these statements as literals.
     </Card>
-
-
 </Content>

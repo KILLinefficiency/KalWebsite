@@ -80,6 +80,29 @@
         output={"100"}
     />
 
+    A function can be composed of multiple function calls.
+
+    <Code
+        lang="kal"
+        caption="fnCompose.kal"
+        code={[
+            "fn add -> a, b {",
+            "    <- a + b.",
+            "}\n",
+            "fn mul -> x, y {",
+            "    <- x * y.",
+            "}\n",
+            "fn calc {",
+            "    :add 45 55 -> valueA.",
+            "    :mul valueA 3 -> valueB.",
+            "    <- valueB.",
+            "}\n",
+            ":calc -> value.",
+            "stdout \"Value = \" value \"\\n\"."
+        ]}
+        output={"Value = 300"}
+    />
+
     Alternatively, you can convert function invocation into an expression using <Fence>$(...)</Fence> if you wish to perform additional operations on the return value of a function.
 
     <Code
@@ -133,6 +156,24 @@
             "stdout \"Sum = \" sum \"\\n\"."
         ]}
         output={"Sum = 100"}
+    />
+
+    Function expressions can be nested together.
+
+    <Code
+        lang="kal"
+        caption="nestedFnExpr.kal"
+        code={[
+            "fn add -> a, b {",
+            "    <- a + b.",
+            "}\n",
+            "fn mul -> x, y {",
+            "    <- x * y.",
+            "}\n",
+            "var value = $(:mul $(:add 5 5) $(:add 45 55)).",
+            "stdout \"Value = \" value \"\\n\"."
+        ]}
+        output={"Value = 1000"}
     />
 
     A function that invokes itself is called a recursive function. A recursive function must always have a base condition that ends the function execution. An absent base condition may cause the function to execute infinitely. Consider the classic factorial example.
@@ -270,8 +311,8 @@
             "fn greet -> time, name {",
             "    stdout \"Good \" time \" \" name \"!\\n\".",
             "}\n",
-            "var values = [\"evening\", \"friend\"].\n",
-            ":greet ...values.",
+            "var valueList = [\"evening\", \"friend\"].\n",
+            ":greet ...valueList.",
         ]}
         output={"Good evening friend!"}
     />
@@ -289,8 +330,8 @@
             "fn add -> x, y, z {",
             "    <- x + y + z.",
             "}\n",
-            "var values = [25, 35].\n",
-            ":add 15 ...values -> a.",
+            "var valueList = [25, 35].\n",
+            ":add 15 ...valueList -> a.",
             ":add 15 ...[25, 35] -> b.\n",
             "stdout \"A = \" a \"\\n\".",
             "stdout \"B = \" b \"\\n\".",
@@ -311,11 +352,11 @@
             "fn greet -> time, name {",
             "    stdout \"Good \" time \" \" name \"!\\n\".",
             "}\n",
-            "var values = #(",
+            "var valueDict = #(",
             "    name -> \"friend\",",
             "    time -> \"evening\"",
             ").\n",
-            ":greet ...values."
+            ":greet ...valueDict."
         ]}
         output={"Good evening friend!"}
     />

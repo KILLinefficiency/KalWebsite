@@ -101,4 +101,22 @@
         lang="bash"
         code={["$ kal hello.kal"]}
     />
+
+    You can launch a Kal shell and run commands on the go.
+
+    <Code
+        lang="bash"
+        code={[
+            "$ kal\n",
+        ]}
+    />
+
+    Shell usage example:
+    <Code
+        lang="kal"
+        code={[
+            "Kal [1]: stdout \"Hello World\\n\".",
+            "Hello World"
+        ]}
+    />
 </Content>

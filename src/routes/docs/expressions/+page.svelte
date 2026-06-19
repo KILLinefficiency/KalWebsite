@@ -354,4 +354,55 @@
         ]}
         output={"Sum = 90"}
     />
+
+    Multiple strings can be concatenated using the <Fence>+</Fence> operator.
+
+    <Code
+        lang="kal"
+        caption="concatenation.kal"
+        code={[
+            "var message = \"Hello\" + \" \" + \"Kal!\".",
+            "stdout message \"\\n\"."
+        ]}
+        output={"Hello Kal!"}
+    />
+
+    Similarly, strings can also be multiplied using the <Fence>*</Fence> operator.
+
+    <Code
+        lang="kal"
+        caption="strMul.kal"
+        code={[
+            "var line = \"-\" * 5.\n",
+            "stdout line \"\\n\"",
+            "    \"Boxed\\n\"",
+            "    line \"\\n\"."
+        ]}
+        output={"-----\nBoxed\n-----"}
+    />
+
+    The <Fence>*</Fence> operator extends its use case to lists by allowing you to generate list by the required length.
+
+    <Code
+        lang="kal"
+        caption="listMul.kal"
+        code={[
+            "var list = [1] * 3.",
+            "stdout list \"\\n\"."
+        ]}
+        output={"[1, 1, 1]"}
+    />
+
+    It's even more useful when you want to generated nested lists.
+
+    <Code
+        lang="kal"
+        caption="nestedListMul.kal"
+        code={[
+            "var list = [[1] * 3] * 3.",
+            "stdout list \"\\n\"."
+        ]}
+        output={"[[1, 1, 1], [1, 1, 1], [1, 1, 1]]"}
+    />
+
 </Content>

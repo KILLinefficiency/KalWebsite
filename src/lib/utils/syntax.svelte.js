@@ -66,7 +66,7 @@ export function highlight(lines, lang) {
             const fnInvocations = line.match(syntax.kal.fn);
             if(fnInvocations != null) {
                 fnInvocations.forEach((invocation) => {
-                    line = line.replace(invocation, `<span style='color: var(--yellow)'>${invocation}</span>`);
+                    line = line.replaceAll(invocation, `<span style='color: var(--yellow)'>${invocation}</span>`);
                 });
             }
 
