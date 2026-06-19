@@ -1,4 +1,5 @@
 <script>
+    import { base } from "$app/paths";
     import Links from "$lib/data/links.js";
 
     let ask = $state("");
@@ -11,10 +12,6 @@
         const queryTokens = query.split(" ");
         return Links.filter((data) => {
             const title = data[0].toLowerCase();
-            // const x = queryTokens.some((tag) => data[2].includes(tag));
-            // $inspect(queryTokens);
-            // $inspect(data[2].join(" "));
-            // $inspect(x);
             return (
                 title.includes(query) ||
                 query.includes(title) ||
@@ -128,7 +125,7 @@
             {:then results}
                 {#if results.length !== 0}
                     {#each results as link, index}
-                        <a class = "topic" href={link[1]}>
+                        <a class = "topic" href={`${base}${link[1]}`}>
                             {index + 1}. {link[0]}
                         </a>
                     {/each}

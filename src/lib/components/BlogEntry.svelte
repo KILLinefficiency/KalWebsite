@@ -1,4 +1,6 @@
 <script>
+    import { base } from "$app/paths";
+
     let { blog, last } = $props();
 </script>
 
@@ -48,7 +50,7 @@
 
 <div class = "block">
     <h3 class = "header">{blog[0]}</h3>
-    <a href={blog[3]}>
+    <a href={`${base}${blog[3]}`}>
         <div class = "point"></div>
         <h1 class = "header line">{blog[1]}</h1>
     </a>

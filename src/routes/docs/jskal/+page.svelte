@@ -1,4 +1,6 @@
 <script>
+    import { base } from "$app/paths";
+
     import Content from "$lib/components/Content.svelte";
     import Code from "$lib/components/Code.svelte";
     import Card from "$lib/components/Card.svelte";
@@ -6,7 +8,7 @@
     import Table from "$lib/components/Table.svelte";
 </script>
 
-<Content title="JSKal" desc="It can do that... again!?" previous="/docs/pykal">
+<Content title="JSKal" desc="It can do that... again!?" previous="{base}/docs/pykal">
     You embed Kal with C++, then with Python. And guess what? You can do it with JavaScript as well!
 
     <br /><br />

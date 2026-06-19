@@ -1,4 +1,6 @@
 <script>
+    import { base } from "$app/paths";
+
     import Content from "$lib/components/Content.svelte";
     import Code from "$lib/components/Code.svelte";
     import Card from "$lib/components/Card.svelte";
@@ -6,7 +8,7 @@
     import Table from "$lib/components/Table.svelte";
 </script>
 
-<Content title="Control Flow", desc="Sometimes you gotta branch out..." previous="/docs/builtins" next="/docs/fn">
+<Content title="Control Flow", desc="Sometimes you gotta branch out..." previous="{base}/docs/builtins" next="{base}/docs/fn">
     It's not necessary that all of your code needs to run sequentially. Sometimes, you need to run a piece of code conditionally.
     Control Flow statements allow you to achieve this. Let's start with the most basic control flow statement: <Fence>if</Fence>.
 

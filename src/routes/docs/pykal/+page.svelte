@@ -1,4 +1,6 @@
 <script>
+    import { base } from "$app/paths";
+
     import Content from "$lib/components/Content.svelte";
     import Code from "$lib/components/Code.svelte";
     import Card from "$lib/components/Card.svelte";
@@ -6,7 +8,7 @@
     import Table from "$lib/components/Table.svelte";
 </script>
 
-<Content title="PyKal" desc="Wait... it can do that!?" previous="/docs/embeddable" next="/docs/jskal">
+<Content title="PyKal" desc="Wait... it can do that!?" previous="{base}/docs/embeddable" next="{base}/docs/jskal">
     What if you could embed Kal not only in C++, but in Python as well?
 
     <br /><br />

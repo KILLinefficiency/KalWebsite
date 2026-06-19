@@ -1,11 +1,13 @@
 <script>
+    import { base } from "$app/paths";
+
     import Content from "$lib/components/Content.svelte";
     import Code from "$lib/components/Code.svelte";
     import Card from "$lib/components/Card.svelte";
     import Fence from "$lib/components/Fence.svelte";
 </script>
 
-<Content title="Functions" desc="Building abstractions!" previous="/docs/control" next="/docs/scope">
+<Content title="Functions" desc="Building abstractions!" previous="{base}/docs/control" next="{base}/docs/scope">
     A function is a customizable and reusable block of code that can be invoked where ever needed. Functions change the control flow of the program and are used to create layers of abstraction to avoid duplicating code.
 
     <br /><br />

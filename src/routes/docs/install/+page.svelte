@@ -1,10 +1,12 @@
 <script>
+    import { base } from "$app/paths";
+
     import Content from "$lib/components/Content.svelte";
     import Code from "$lib/components/Code.svelte";
     import Card from "$lib/components/Card.svelte";
 </script>
 
-<Content title="Install Kal" desc="...or rather compile it from source" previous="/docs" next="/docs/statements">
+<Content title="Install Kal" desc="...or rather compile it from source" previous="{base}/docs" next="{base}/docs/statements">
     Kal has no third-party dependency, hence it's very convenient to compile it from the source code. Kal uses a build script to manage every aspect of compilation and installation including the Kal interpreter, tests and libkal.
     <br /> <br />
     Please note that Kal compilation and installation is tested on Linux and therefore this document highlights installation on Linux only. Installation on macOS should be similar. Windows users are recommended to use Windows Subsystem for Linux (WSL).

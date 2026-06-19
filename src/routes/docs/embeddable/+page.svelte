@@ -1,4 +1,6 @@
 <script>
+    import { base } from "$app/paths";
+
     import Content from "$lib/components/Content.svelte";
     import Code from "$lib/components/Code.svelte";
     import Card from "$lib/components/Card.svelte";
@@ -6,7 +8,7 @@
     import Table from "$lib/components/Table.svelte";
 </script>
 
-<Content title="Embeddable Kal" desc="Powering other applications!" previous="/docs/ref" next="/docs/pykal">
+<Content title="Embeddable Kal" desc="Powering other applications!" previous="{base}/docs/ref" next="{base}/docs/pykal">
     An embeddable language integrates with a host language. It acts like a guest inside an existing application and is often a small part of a larger existing application.
 
     <br /><br />

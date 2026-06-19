@@ -1,4 +1,6 @@
 <script>
+    import { base } from "$app/paths";
+
     import Content from "$lib/components/Content.svelte";
     import Code from "$lib/components/Code.svelte";
     import Fence from "$lib/components/Fence.svelte";
@@ -6,7 +8,7 @@
     import Card from "$lib/components/Card.svelte";
 </script>
 
-<Content title="Built-ins" desc="Batteries included!" previous="/docs/expressions" next="/docs/control">
+<Content title="Built-ins" desc="Batteries included!" previous="{base}/docs/expressions" next="{base}/docs/control">
     Kal does not come with a separate standard library. Rather, everything is intrinsic to the interpreter. This chapter covers general intrinsics.
 
     <br /><br />

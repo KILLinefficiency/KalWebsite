@@ -1,11 +1,13 @@
 <script>
+    import { base } from "$app/paths";
+
     import Content from "$lib/components/Content.svelte";
     import Code from "$lib/components/Code.svelte";
     import Fence from "$lib/components/Fence.svelte";
     import Table from "$lib/components/Table.svelte";
 </script>
 
-<Content title="Expressions" desc="Evaluate to a single value..." previous="/docs/statements" next="/docs/builtins">
+<Content title="Expressions" desc="Evaluate to a single value..." previous="{base}/docs/statements" next="{base}/docs/builtins">
     Expressions are composed of operators and operands and evaluate to a single final value.
     Kal supports all arithmetic, logical, relational, bitwise and unary operators.
 

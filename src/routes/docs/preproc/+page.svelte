@@ -1,11 +1,13 @@
 <script>
+    import { base } from "$app/paths";
+
     import Content from "$lib/components/Content.svelte";
     import Code from "$lib/components/Code.svelte";
     import Card from "$lib/components/Card.svelte";
     import Fence from "$lib/components/Fence.svelte";
 </script>
 
-<Content title="Packages & Preprocessor" desc="It's time to go multi-file!" previous="/docs/scope" next="/docs/serialization">
+<Content title="Packages & Preprocessor" desc="It's time to go multi-file!" previous="{base}/docs/scope" next="{base}/docs/serialization">
     At some point, your code is going to grow in size. It's not a good idea to write all of it inside a single file. The Kal Preprocessor allows you to write your code in multiple files and then stitch them together into a single unit during execution.
 
     <br /> <br />
