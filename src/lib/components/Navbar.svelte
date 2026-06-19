@@ -102,9 +102,9 @@
         <div class = "logo">
             <Logo />
         </div>
-        <a href="/">Home</a>
-        <a href="/docs">Docs</a>
-        <a href="/blog">Blog</a>
+        <a href="{base}/">Home</a>
+        <a href="{base}/docs">Docs</a>
+        <a href="{base}/blog">Blog</a>
     </div>
 
     <div class = "leading">

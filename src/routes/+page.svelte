@@ -1,4 +1,5 @@
 <script>
+    import { base } from "$app/paths";
     import Code from "$lib/components/Code.svelte";
 
     let current = 1;
@@ -277,6 +278,6 @@
 
 <div id = "4" class = "container">
     <div class = "docs">
-        <a href="/docs">Dive into action!</a>
+        <a href="{base}/docs">Dive into action!</a>
     </div>
 </div>

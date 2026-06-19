@@ -1,4 +1,6 @@
 <script>
+    import { base } from "$app/paths";
+
     import Content from "$lib/components/Content.svelte";
     import Code from "$lib/components/Code.svelte";
     import Card from "$lib/components/Card.svelte";
@@ -6,7 +8,7 @@
     import Table from "$lib/components/Table.svelte";
 </script>
 
-<Content title="Embeddable Kal" desc="Powering other applications!" previous="/docs/ref" next="/docs/pykal">
+<Content title="Embeddable Kal" desc="Powering other applications!" previous="{base}/docs/ref" next="{base}/docs/pykal">
     An embeddable language integrates with a host language. It acts like a guest inside an existing application and is often a small part of a larger existing application.
 
     <br /><br />
@@ -293,6 +295,29 @@
             "}"
         ]}
         output={"Dict: Result(#(name -> \"kal\", pi -> 3.14))\n\nname : Result(\"kal\")\npi : Result(3.14)\n\nName: kal\nPi: 3.14"}
+    />
+
+    You can have multiple instances of the <Fence>Kal</Fence> class in your C++ program. All of them maintain their memory maps separately.
+
+    <Code
+        lang="cpp"
+        caption="multipleKal.cpp"
+        code={[
+            "#include <kal>\n",
+            "int main(int argc, const char** argv) {",
+            "    Kal kalA = Kal(),",
+            "        kalB = Kal(),",
+            "        kalC = Kal();\n",
+            "    kalA.exec(\"var x = 10.\");",
+            "    kalB.exec(\"var x = 20.\");",
+            "    kalC.exec(\"var x = 30.\");\n",
+            "    kalA.exec(R\"(stdout x \"\\n\".)\");",
+            "    kalB.exec(R\"(stdout x \"\\n\".)\");",
+            "    kalC.exec(R\"(stdout x \"\\n\".)\");\n",
+            "    return 0;",
+            "}"
+        ]}
+        output={"10\n20\n30"}
     />
 
     <Card>

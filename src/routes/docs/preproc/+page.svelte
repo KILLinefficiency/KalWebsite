@@ -1,11 +1,13 @@
 <script>
+    import { base } from "$app/paths";
+
     import Content from "$lib/components/Content.svelte";
     import Code from "$lib/components/Code.svelte";
     import Card from "$lib/components/Card.svelte";
     import Fence from "$lib/components/Fence.svelte";
 </script>
 
-<Content title="Packages & Preprocessor" desc="It's time to go multi-file!" previous="/docs/scope" next="/docs/serialization">
+<Content title="Packages & Preprocessor" desc="It's time to go multi-file!" previous="{base}/docs/scope" next="{base}/docs/serialization">
     At some point, your code is going to grow in size. It's not a good idea to write all of it inside a single file. The Kal Preprocessor allows you to write your code in multiple files and then stitch them together into a single unit during execution.
 
     <br /> <br />
@@ -64,6 +66,66 @@
     <Card>
         The proprocessor directive does not end with a <Fence>.</Fence>
     </Card>
+
+    Alternatively, you can include one or multiple files just before execution using the <Fence>-d</Fence> flag.
+
+    <Code
+        lang="kal"
+        caption="lib.kal"
+        code={[
+            "fn greet -> name {",
+            "    stdout \"Hello \" name \"\\n\".",
+            "}"
+        ]}
+    />
+
+    <Code
+        lang="kal"
+        caption="main.kal"
+        code={[
+            ";; no file included",
+            ":greet \"Earth\"."
+        ]}
+    />
+
+    <Code
+        lang="bash"
+        code={[
+            "$ kal -d lib.kal main.kal"
+        ]}
+        output={"Hello Earth"}
+    />
+
+    Multiple files can be provided by separating their paths with commas.
+
+    <Code
+        lang="bash"
+        code={[
+            "$ kal -d lib.kal,pkg.kal main.kal"
+        ]}
+    />
+
+    <Card>
+        The argument of <Fence>-d</Fence> flag must not contain spaces around the commas.
+    </Card>
+
+    You can observe the output of the preprocessor using the <Fence>-p</Fence> flag.
+
+    <Code
+        lang="bash"
+        code={[
+            "$ kal -p main.kal"
+        ]}
+    />
+
+    The output can be saved to a file using the <Fence>-o</Fence> flag.
+
+    <Code
+        lang="bash"
+        code={[
+            "$ kal -p main.kal -o processedMain.kal"
+        ]}
+    />
 
     The best use of the preprocessor outside the internal scope of your project, is including existing projects into your own. The Kal Preprocessor allows you to build reusable packages and use them across multiple projects.
     <br /> <br />

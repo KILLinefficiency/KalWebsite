@@ -1,11 +1,13 @@
 <script>
+    import { base } from "$app/paths";
+
     import Content from "$lib/components/Content.svelte";
     import Code from "$lib/components/Code.svelte";
     import Fence from "$lib/components/Fence.svelte";
     import Card from "$lib/components/Card.svelte";
 </script>
 
-<Content title="Serialization" desc="Defalte & Inflate" previous="/docs/preproc" next="/docs/ref">
+<Content title="Serialization" desc="Defalte & Inflate" previous="{base}/docs/preproc" next="{base}/docs/ref">
     All of your data resides in memory during execution. Once your program concludes, the data is lost.
 
     <br /><br />

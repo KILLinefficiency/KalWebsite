@@ -1,11 +1,11 @@
 const syntax = {
     kal: {
-        keywords: [/var/g, /stdout/g, /fn/g, /loop/g, /\sin\s/g, /if\s/g,
-            /else/g, /static/g, /break/g, /len/g, /continue/g, /defer/g,
-            /null/g, /type/g, /inert/g, /first/g, /last/g, /binWrite/g,
-            /binRead/g, /exit/g, /^style/g, /stdin/g, /push/g, /popFirst/g,
-            /pop/g, /reverse/g, /extend/g, /flat/g, /keys/g, /values/g,
-            /items/g, /update/g, /exists/g
+        keywords: [/var/g, /stdout/g, /fn/g, /loop/g, /\sin\s/g, /elif/g,
+            /if\s/g, /else/g, /static/g, /break/g, /len/g, /continue/g,
+            /defer/g, /null/g, /type/g, /inert/g, /first/g, /last/g,
+            /binWrite/g, /binRead/g, /exit/g, /^style/g, /stdin/g, /push/g,
+            /popFirst/g, /pop/g, /reverse/g, /extend/g, /flat/g, /keys/g,
+            /values/g, /items/g, /update/g, /exists/g
         ],
         preproc: /^@.+/g,
         string: /\".*?\"/g,
@@ -66,7 +66,7 @@ export function highlight(lines, lang) {
             const fnInvocations = line.match(syntax.kal.fn);
             if(fnInvocations != null) {
                 fnInvocations.forEach((invocation) => {
-                    line = line.replace(invocation, `<span style='color: var(--yellow)'>${invocation}</span>`);
+                    line = line.replaceAll(invocation, `<span style='color: var(--yellow)'>${invocation}</span>`);
                 });
             }
 

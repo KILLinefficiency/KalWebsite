@@ -1,4 +1,6 @@
 <script>
+    import { base } from "$app/paths";
+
     import Content from "$lib/components/Content.svelte";
     import Code from "$lib/components/Code.svelte";
     import Card from "$lib/components/Card.svelte";
@@ -6,7 +8,7 @@
     import Table from "$lib/components/Table.svelte";
 </script>
 
-<Content title="PyKal" desc="Wait... it can do that!?" previous="/docs/embeddable" next="/docs/jskal">
+<Content title="PyKal" desc="Wait... it can do that!?" previous="{base}/docs/embeddable" next="{base}/docs/jskal">
     What if you could embed Kal not only in C++, but in Python as well?
 
     <br /><br />
@@ -174,6 +176,26 @@
             "print('Sum:', result_dict['sum'].to_number())"
         ]}
         output={"Result(#(sum -> 100))\n{'sum': Result(100)}\nSum: 100.0"}
+    />
+
+    You can have multiple instances of the <Fence>Kal</Fence> class in your Python program. All of them maintain their memory maps separately.
+
+    <Code
+        lang="py"
+        caption="multipleKal.py"
+        code={[
+            "from pykal import Kal\n",
+            "kalA = Kal()",
+            "kalB = Kal()",
+            "kalC = Kal()\n",
+            "kalA.exec('var x = 10.')",
+            "kalB.exec('var x = 20.')",
+            "kalC.exec('var x = 30.')\n",
+            "kalA.exec('stdout x \"\\n\".')",
+            "kalB.exec('stdout x \"\\n\".')",
+            "kalC.exec('stdout x \"\\n\".')"
+        ]}
+        output={"10\n20\n30"}
     />
 
     <Card>

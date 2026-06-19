@@ -1,11 +1,13 @@
 <script>
+    import { base } from "$app/paths";
+
     import Content from "$lib/components/Content.svelte";
     import Code from "$lib/components/Code.svelte";
     import Card from "$lib/components/Card.svelte";
     import Fence from "$lib/components/Fence.svelte";
 </script>
 
-<Content title="Scopes & Shadowing" desc="Things are often short lived..." previous="/docs/fn" next="/docs/preproc">
+<Content title="Scopes & Shadowing" desc="Things are often short lived..." previous="{base}/docs/fn" next="{base}/docs/preproc">
     Scope of a variable determines where a variable exists and its lifetime indicates how long it lives. A variable declared at the top level generally lives till the end of the program.
 
     <Code

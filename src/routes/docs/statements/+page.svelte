@@ -1,11 +1,14 @@
 <script>
+    import { base } from "$app/paths";
+
     import Content from "$lib/components/Content.svelte";
     import Code from "$lib/components/Code.svelte";
     import Fence from "$lib/components/Fence.svelte";
     import Card from "$lib/components/Card.svelte";
+    import Table from "$lib/components/Table.svelte";
 </script>
 
-<Content title="Statements" desc="And so we begin..." previous="/docs/install" next="/docs/expressions">
+<Content title="Statements" desc="And so we begin..." previous="{base}/docs/install" next="{base}/docs/expressions">
     A statement is a basic unit of execution in Kal. It performs an operation. You have seen <Fence>stdout</Fence> in the previous chapter. It simply prints information to the screen.
     Any information passed to a statement is its argument. A statement can have multiple arguments.
 
@@ -133,6 +136,26 @@
         ]}
     />
 
+    Have you noticed that <Fence>\n</Fence> character before? That's an escape character. An escape character has a special meaning.
+    In this case, <Fence>\n</Fence> represents a new line. Every escape character starts with a backslash, <Fence>\</Fence>.
+
+    <br /><br />
+    Kal supports the following escape characters.
+
+    <br /><br />
+    <Table
+        header={["Name", "Character"]}
+        rows={[
+            ["New Line", "\\n"],
+            ["Tab", "\\t"],
+            ["Backspace", "\\b"],
+            ["Backslash", "\\\\"],
+            ["Double Quote", "\\\""],
+            ["Carriage Return", "\\r"]
+        ]}
+    />
+
+    <br /><br />
     Lists are collections of multiple values in a single container.
     Lists start and end with <Fence>[</Fence> and <Fence>]</Fence> respectively with values separated by a comma (<Fence>,</Fence>).
 
@@ -208,6 +231,20 @@
             "stdout \"After = \" data \"\\n\"."
         ]}
         output={"Before = [1, 2, 3]\nAfter = [1, 20, 3]"}
+    />
+
+    A negative index can be used to access a list from the end. Negative indexes start with -1.
+
+    <Code
+        lang="kal"
+        caption="negativeIndex.kal"
+        code={[
+            "var data = [1, 2, 3].",
+            "stdout \"Last = \" data[-1] \"\\n\".\n",
+            "data[-1] = 4.",
+            "stdout \"Final = \" data \"\\n\"."
+        ]}
+        output={"Last = 3\nFinal = [1, 2, 4]"}
     />
 
     Symbols <Fence>[]</Fence> can be chained together to get/reassign elements from/to a nested list.

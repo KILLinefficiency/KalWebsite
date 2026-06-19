@@ -1,11 +1,13 @@
 <script>
+    import { base } from "$app/paths";
+
     import Content from "$lib/components/Content.svelte";
     import Card from "$lib/components/Card.svelte";
     import Tooltip from "$lib/components/Tooltip.svelte";
     import Fence from "$lib/components/Fence.svelte";
 </script>
 
-<Content title="Introduction" desc="Glad to see you here!" next="/docs/install">
+<Content title="Introduction" desc="Glad to see you here!" next="{base}/docs/install">
     Kal is a general purpose, lightweight, interpreted programming language.
     It aims at combining various paradigms of programming languages in the right ratio to provide a great developer experience.
 
