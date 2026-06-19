@@ -6,7 +6,7 @@ const isGithub = process.env.TARGET === "github";
 const config = {
 	kit: {
 		adapter: isGithub
-			? adapterStatic({ pages: "build" })
+			? adapterStatic({ pages: "build/" })
 			: adapterVercel(),
 
 		output: {

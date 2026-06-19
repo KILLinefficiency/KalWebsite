@@ -23,7 +23,8 @@ jobs:
       - name: build
         env:
           TARGET: 'github'
-          BASE_PATH: '/${{ github.event.repository.name }}'
+          # BASE_PATH: '/${{ github.event.repository.name }}'
+          BASE_PATH: '/KalWebsite'
         run: |
           npm run build
 
