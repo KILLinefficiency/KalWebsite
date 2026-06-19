@@ -10,7 +10,7 @@
 <style>
     .content {
         margin: 0px auto;
-        width: 50vw;
+        width: 40vw;
         font-size: 22.5px;
     }
 
@@ -34,6 +34,7 @@
 
     .body {
         margin-top: 50px;
+        margin-bottom: 50px;
     }
 
     @media screen and (max-width: 1000px) {

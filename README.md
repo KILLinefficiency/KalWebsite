@@ -2,6 +2,8 @@
 
 This repository contains source code for the offical [Kal Website](https://kal-lang.vercel.app). It is written in Svelte 5 and compiles to static HTML pages with small JS and CSS bundles.
 
+*Mirror:* [Kal Website](https://killinefficiency.github.io/KalWebsite/)
+
 ## Installation
 
 You can serve the website locally. Install developer dependencies:
