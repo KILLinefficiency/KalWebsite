@@ -5,7 +5,7 @@
 <Blog title = "Rise & Shine" datePublished = "20th June 2026">
     September 2021, I was done with school. It was time to work on a new idea.
     What could it be? Yet another generic-ish project that I'd abandon after a couple weeks of development?
-    No, I wanted to set the bar high. And it occurred to me: what could be more exciting than building a programming language!
+    Nope, I wanted to set the bar high. And it occurred to me: what could be more exciting than building a programming language!
 
     <br /><br />
     It was the summer of April 2022, when I first sat down to work on Kal.
