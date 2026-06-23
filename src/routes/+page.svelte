@@ -206,10 +206,10 @@
                         "    }\n",
                         "    <- data.",
                         "}\n",
-                        ":sort [3, 1, 5, 4, 2] -> data.",
-                        "stdout \"Sorted:  \" data \"\\n\"."
+                        ":sort [3, 1, 5, 4, 2] -> sorted.",
+                        "stdout \"Sorted: \" sorted \"\\n\"."
                     ]}
-                    output={"Sorted:  [1, 2, 3, 4, 5]"}
+                    output={"Sorted: [1, 2, 3, 4, 5]"}
                 />
             </div>
         </div>

@@ -123,7 +123,7 @@
         output={"Absent"}
     />
 
-    Here, the variable <Fence>value</Fence>, therefore <Fence>??</Fence> uses <Fence>"Absent"</Fence> as the fallback value.
+    Here, the variable <Fence>value</Fence> is <Fence>null</Fence>, therefore <Fence>??</Fence> uses <Fence>"Absent"</Fence> as the fallback value.
     Null coalescing does not work if a variable that it's acting upon is not set to <Fence>null</Fence>.
 
     <Code

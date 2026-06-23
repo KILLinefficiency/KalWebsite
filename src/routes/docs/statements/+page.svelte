@@ -49,7 +49,7 @@
         caption="variables.kal"
         code={[
             "var planet = \"Earth\".",
-            "stdout \"From \" plant \"\\n\"."
+            "stdout \"From \" planet \"\\n\"."
         ]}
         output={"From Earth"}
     />
